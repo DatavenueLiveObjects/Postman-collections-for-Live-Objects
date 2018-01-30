@@ -36,12 +36,9 @@ Batch Geocoder API
 Run in Postman Download Collection
 
 
-<a href="/heremaps/postman-collections/blob/master/batch-geocoder.postman_collection">Batch Geocoder API</a></h2><ul>
+<h2><a href="#batch-geocoder-api" aria-hidden="true" class="anchor" id="user-content-batch-geocoder-api"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="/heremaps/postman-collections/blob/master/batch-geocoder.postman_collection">Batch Geocoder API</a></h2><ul>
 <li><strong>Geocode a Street Intersection</strong> - Request the latitude, longitude and details of a street intersection</li>
 <li><strong>Geocode an Address within a Bounding Box</strong> - Request the latitude, longitude and details of an address restricting results to a specific area</li>
-<li><strong>Geocode using free-form input</strong> - Request the latitude, longitude and details of an address based on free-form text input</li>
-<li><strong>Geocode using partial address information</strong> - Request the latitude, longitude and details of an address based on partial address information</li>
-<li><strong>Multi-reverse Geocode Addresses</strong> - Request the addresses of up to one hundred locations with one multi-reverse geocoding request</li>
 <li><strong>Multi-reverse Geocode Landmarks</strong> - Request the nearest landmarks for up to one hundred locations with one multi-reverse geocoding request</li>
 <li><strong>Reverse Geocode Landmarks</strong> - Request details of landmarks near to a given latitude and longitude</li>
 <li><strong>Reverse Geocode an Address from a Location</strong> - Request address details for a given latitude and longitude</li>
