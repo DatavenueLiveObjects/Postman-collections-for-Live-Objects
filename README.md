@@ -26,3 +26,11 @@ The collections contained in this repository are organized under this scheme:
         Example with geo-zones
         Example with state changes
        
+Batch Geocoder API
+
+    Batch Geocode Addresses - Start asynchronously geocoding a large set of addresses in one batch
+    Batch Geocode Job Status - Request the status of a batch geocoder job
+    Batch Reverse Geocode Locations - Start asynchronously reverse-geocoding a large set of locations in one batch
+    Download Geocoded Data - Download a zipped geocoded dataset from a completed job
+
+Run in Postman Download Collection
