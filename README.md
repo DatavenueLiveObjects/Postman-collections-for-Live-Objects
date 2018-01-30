@@ -12,7 +12,7 @@ To get a free Live Objects go on https://liveobjects.orange-business.com/#/reque
 
 Then go in configuration tab and create a API key. Finally enter it as mentioned below : 
 
-<img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/Postman-collections-for-Live-Objects.jpg" alt="Postman" width=500">
+<img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/Postman-collections-for-Live-Objects.jpg" alt="Postman" width=500>
 
 The collections contained in this repository are organized under this scheme:
 
