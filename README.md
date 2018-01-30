@@ -18,7 +18,7 @@ The collections contained in this repository are organized under this scheme:
 
 <p>The collections contained in this repository are organized under this scheme:</p>
 <ul>
-<li><a href="#LO-training-api">Live Objets training APIs</a>
+<li><a href="./#LO-training-api">Live Objets training APIs</a>
 <ul>
 <li>Push Data from LoRa devices API</a></li>
 <li>Rule Engine API</li>
