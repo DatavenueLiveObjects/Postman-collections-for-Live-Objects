@@ -50,7 +50,7 @@ The collections contained in this repository are organized under this scheme:
 <li><strong>Debug mode</strong> - </li>
 <li><strong>Request on Datazone</strong> - See how to make Elastic requests to make analyses on your data</li>
 </ul>
-
+<p>&nbsp;</p>
 <p><a href="https://documenter.getpostman.com/view/1510363/live-objects-training-publish/7TJCtGP" rel="nofollow"><img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/runInPostman.svg" alt="Run in Postman" data-canonical-src="https://run.pstmn.io/button.svg" style="max-width:100%;"></a>  
 <a href="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/Live%20Objects%20Training%20publish.postman_collection.json"><img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/downloadFile.svg" alt="Download Collection" data-canonical-src="https://heremaps.github.io/postman-collections/img/download.svg" style="max-width:100%;">
 </p>
