@@ -61,6 +61,6 @@ The collections contained in this repository are organized under this scheme:
 <li><strong>Push Data from LoRa Devices</strong> - See how to create an event on a LoRa device and send an email when event occur</li>
 
 </ul>
-
+<p>&nbsp;</p>
 <p><a href="https://documenter.getpostman.com/view/423456/collection/7TMBCTt" rel="nofollow"><img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/runInPostman.svg" alt="Run in Postman" data-canonical-src="https://run.pstmn.io/button.svg" style="max-width:100%;"></a>  
 <a href="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/Live%20Objects%20Event%20Processing%20Example%201.postman_collection.json"><img src="https://github.com/DatavenueLiveObjects/Postman-collections-for-Live-Objects/blob/master/downloadFile.svg" alt="Download Collection" data-canonical-src="https://heremaps.github.io/postman-collections/img/download.svg" style="max-width:100%;">
