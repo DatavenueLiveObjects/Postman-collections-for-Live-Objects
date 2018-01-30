@@ -16,13 +16,15 @@ Then go in configuration tab and create a API key. Finally enter it as mentioned
 
 The collections contained in this repository are organized under this scheme:
 
-    REST APIs
-        Batch Geocoder API
-        Geocoder API
-        Map Image API
-        Map Tile API
-        Places API
-        Public Transit API
+    Live Objets training APIs
+        Push Data from LoRa devices API
+        Rule Engine API
+        Device Management API
+        Debug mode API
+        Requests on Datazone API
+    Live Objets Event Processing Examples
+    
+    Public Transit API
         Routing API
         Traffic API
         Venue Maps
