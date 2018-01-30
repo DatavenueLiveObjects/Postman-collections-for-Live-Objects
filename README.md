@@ -34,3 +34,19 @@ Batch Geocoder API
     Download Geocoded Data - Download a zipped geocoded dataset from a completed job
 
 Run in Postman Download Collection
+
+
+<a href="/heremaps/postman-collections/blob/master/batch-geocoder.postman_collection">Batch Geocoder API</a></h2><ul>
+<li><strong>Geocode a Street Intersection</strong> - Request the latitude, longitude and details of a street intersection</li>
+<li><strong>Geocode an Address within a Bounding Box</strong> - Request the latitude, longitude and details of an address restricting results to a specific area</li>
+<li><strong>Geocode using free-form input</strong> - Request the latitude, longitude and details of an address based on free-form text input</li>
+<li><strong>Geocode using partial address information</strong> - Request the latitude, longitude and details of an address based on partial address information</li>
+<li><strong>Multi-reverse Geocode Addresses</strong> - Request the addresses of up to one hundred locations with one multi-reverse geocoding request</li>
+<li><strong>Multi-reverse Geocode Landmarks</strong> - Request the nearest landmarks for up to one hundred locations with one multi-reverse geocoding request</li>
+<li><strong>Reverse Geocode Landmarks</strong> - Request details of landmarks near to a given latitude and longitude</li>
+<li><strong>Reverse Geocode an Address from a Location</strong> - Request address details for a given latitude and longitude</li>
+<li><strong>Reverse Geocode the District containing a Location</strong> - Request details about the district containing a given latitude and longitude</li>
+<li><strong>Reverse Geocode the Shape of a Postal Code</strong> - Request the shape of a postal district for a given latitude and longitude</li>
+<li><strong>Suppressing Response Attributes</strong> - Request only the latitude, longitude for a given address</li>
+</ul>
+<p><a href="https://app.getpostman.com/run-collection/4f968ce760f14ed986dc" rel="nofollow"><img src="https://camo.githubusercontent.com/271662c7525b6d3c5e9f88206b3dcc06bfa73a6d/68747470733a2f2f72756e2e7073746d6e2e696f2f627574746f6e2e737667" alt="Run in Postman" data-canonical-src="https://run.pstmn.io/button.svg" style="max-width:100%;"></a>  <a href="/heremaps/postman-collections/raw/master/geocoder.postman_collection"><img src="https://camo.githubusercontent.com/b496d914a355bd579dadffe09d7b07b078446e7a/68747470733a2f2f686572656d6170732e6769746875622e696f2f706f73746d616e2d636f6c6c656374696f6e732f696d672f646f776e6c6f61642e737667" alt="Download Collection" data-canonical-src="https://heremaps.github.io/postman-collections/img/download.svg" style="max-width:100%;">
