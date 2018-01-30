@@ -23,28 +23,10 @@ The collections contained in this repository are organized under this scheme:
         Debug mode API
         Requests on Datazone API
     Live Objets Event Processing Examples
-    
-    Public Transit API
-        Routing API
-        Traffic API
-        Venue Maps
-        Weather API
-    Platform Extensions
-        Custom Location Extension API
-        Platform Data Extension API
-        Route Match Extension API
-        Waypoint Sequence Extension API
+        Example with geo-zones
+        Example with state changes
+       
 
-    NOTE: In order to get the postman requests to work, you must replace all instances of the {YOUR_APP_ID} and {YOUR_APP_CODE} variables within the collection and use your own HERE credentials. Within Postman, set the variables using the Manage environments menu.
-
-    You can obtain a set of credentials from the Plans Page on developer.here.com.
-
-See the LICENSE file in the root of this project for license details.
-REST APIs
-
-The HERE REST APIs provide a flexible and fast access to a variety of map data and other map data functions. Developers can use the HERE Rest APIs to perform tasks ranging from batch geocode requests and advanced traffic incident reports to creating an isoline route.
-
-    Documentation on these APIs can be found on the developer.here.com portal.
 
 Batch Geocoder API
 
