@@ -29,9 +29,9 @@
 							"raw": "{\r\n  \"contextData\": 80,\r\n  \"tags\": [\r\n    \"threshold\",\"alert\",\"pm10\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/pm10-alert-threshold-1",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/pm10-alert-threshold-1",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -64,9 +64,9 @@
 							"raw": "{\r\n  \"contextData\": 200,\r\n  \"tags\": [\r\n    \"threshold\",\"info\",\"no2\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/no2-info-threshold-1",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/no2-info-threshold-1",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -99,9 +99,9 @@
 							"raw": "{\r\n  \"contextData\": true,\r\n  \"tags\": [\r\n    \"previous day\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/no2-previous-day-medium-level-reached",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/no2-previous-day-medium-level-reached",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -134,9 +134,9 @@
 							"raw": "{\r\n  \"contextData\": 50,\r\n  \"tags\": [\r\n    \"threshold\",\"info\",\"pm10\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/pm10-info-threshold-1",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/pm10-info-threshold-1",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -169,9 +169,9 @@
 							"raw": "{\r\n  \"contextData\": 200,\r\n  \"tags\": [\r\n    \"threshold\",\"alert\",\"no2\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/no2-alert-threshold-2",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/no2-alert-threshold-2",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -204,9 +204,9 @@
 							"raw": "{\r\n  \"contextData\": false,\r\n  \"tags\": [\r\n    \"previous day\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/no2-previous-day-high-level-reache",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/no2-previous-day-high-level-reache",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -239,9 +239,9 @@
 							"raw": "{\r\n  \"contextData\": 400,\r\n  \"tags\": [\r\n    \"threshold\",\"alert\",\"no2\"\r\n  ]\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/context/no2-alert-threshold-1",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/context/no2-alert-threshold-1",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -293,9 +293,9 @@
 							"raw": "{\r\n    \"name\": \"PM10 daily pollution level\",\r\n    \"enabled\": true,\r\n    \"stateFunction\": {\r\n        \"if\": [\r\n    { \r\n    \"and\" :\r\n                [\r\n           { \"<\": [{ \"var\": \"value.avg-PM10\"}, {\"ctx\": \"pm10-info-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n    \r\n    \r\n    },\r\n        \"LOW\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \"<\": [{\"ctx\": \"pm10-info-threshold-1\"},{ \"var\": \"value.avg-PM10\"},{\"ctx\": \"pm10-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"MEDIUM\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \">\": [{ \"var\": \"value.avg-PM10\"},{\"ctx\": \"pm10-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"HIGH\"]\r\n  },\r\n    \"stateKeyPath\": \"streamId\"\r\n    \r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/stateprocessing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -340,9 +340,9 @@
 							"raw": "{\r\n    \"name\": \"NO2 daily pollution level\",\r\n    \"enabled\": true,\r\n    \"stateFunction\": {\r\n        \"if\": [\r\n    { \r\n    \"and\" :\r\n                [\r\n           { \"<\": [{ \"var\": \"value.avg-NO2\"}, {\"ctx\": \"no2-alert-threshold-2\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n    \r\n    \r\n    },\r\n        \"LOW\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \"<\": [{\"ctx\": \"no2-alert-threshold-2\"},{ \"var\": \"value.avg-NO2\"},{\"ctx\": \"no2-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"MEDIUM\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \">\": [{ \"var\": \"value.avg-NO2\"},{\"ctx\": \"no2-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"HIGH\"]\r\n  },\r\n    \"stateKeyPath\": \"streamId\"\r\n    \r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/stateprocessing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -374,9 +374,9 @@
 							"raw": "{\r\n  \"currentState\": {},\r\n  \"data\": {\r\n   \"streamId\": \"paris-centre-daily\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_daily\",\r\n   \"value\": {\r\n       \"type\":\"daily\",\r\n      \"avg-NO2\":90.2,\r\n      \"avg-PM10\":50.1,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T00:00:00Z\"\r\n  },\r\n  \"stateProcessingFunction\": {\r\n        \"if\": [\r\n    { \r\n    \"and\" :\r\n                [\r\n           { \"<\": [{ \"var\": \"value.avg-PM10\"}, {\"ctx\": \"pm10-info-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n    \r\n    \r\n    },\r\n        \"LOW\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \"<\": [{\"ctx\": \"pm10-info-threshold-1\"},{ \"var\": \"value.avg-PM10\"},{\"ctx\": \"pm10-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"MEDIUM\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \">\": [{ \"var\": \"value.avg-PM10\"},{\"ctx\": \"pm10-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"HIGH\"]\r\n    \r\n  }\r\n  \r\n\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/stateprocessing-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -409,9 +409,9 @@
 							"raw": "{\r\n  \"currentState\": {},\r\n  \"data\": {\r\n   \"streamId\": \"paris-centre-daily\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_daily\",\r\n   \"value\": {\r\n       \"type\":\"daily\",\r\n      \"avg-NO2\":9,\r\n      \"avg-PM10\":9,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T00:00:00Z\"\r\n  },\r\n  \"stateProcessingFunction\": {\r\n        \"if\": [\r\n    { \r\n    \"and\" :\r\n                [\r\n           { \"<\": [{ \"var\": \"value.avg-NO2\"}, {\"ctx\": \"no2-alert-threshold-2\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n    \r\n    \r\n    },\r\n        \"LOW\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \"<\": [{\"ctx\": \"no2-alert-threshold-2\"},{ \"var\": \"value.avg-NO2\"},{\"ctx\": \"no2-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"MEDIUM\",\r\n        {\r\n              \"and\" :\r\n                [\r\n           { \">\": [{ \"var\": \"value.avg-NO2\"},{\"ctx\": \"no2-alert-threshold-1\"} ]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"daily\"]}\r\n                ]\r\n          \r\n        },\r\n        \"HIGH\"]\r\n    \r\n  }\r\n  \r\n\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/stateprocessing-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -462,9 +462,9 @@
 							"raw": "{\r\n  \"name\": \"pm10-info-level-reached\",\r\n  \"dataPredicate\": {     \"and\" :\r\n                [\r\n                   { \"<\" : [{\"ctx\": \"pm10-info-threshold-1\"},  { \"var\" : \"value.avg-PM10\" }, {\"ctx\": \"pm10-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]},\r\n  \"enabled\": true\r\n\r\n}\r\n\r\n\r\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -508,9 +508,9 @@
 							"raw": "{\r\n  \"name\": \"no2-alert-level-3-consecutive-hours-threshold1\",\r\n  \"dataPredicate\": { \"and\" :\r\n                [\r\n                   { \">\" : [ { \"var\" : \"value.data1.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   { \">\" : [ { \"var\" : \"value.data2.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   { \">\" : [ { \"var\" : \"value.data3.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"last_three_hours\"]}\r\n                ]},\r\n  \"enabled\": true\r\n\r\n}\r\n\r\n\r\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -554,9 +554,9 @@
 							"raw": "{\r\n  \"name\": \"no2-info-level-reached\",\r\n  \"dataPredicate\": {     \"and\" :\r\n                [\r\n                   { \">\" : [ { \"var\" : \"value.NO2\" }, {\"ctx\": \"no2-info-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]},\r\n  \"enabled\": true\r\n\r\n}\r\n\r\n\r\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -588,9 +588,9 @@
 							"raw": "{\r\n  \"data\": {\r\n    \"metadata\": {\r\n      \"connector\": \"http\"\r\n      },  \r\n   \"streamId\":  \"paris-centre-hourly\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_hourly\",\r\n   \"value\": {\r\n       \"type\":\"hourly\",\r\n      \"NO2\":300,\r\n      \"PM10\":51,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T02:00:00Z\"\r\n  },\r\n  \"dataPredicate\": {\r\n    \"and\" :\r\n                [\r\n                   { \"<\" : [{\"ctx\": \"pm10-info-threshold-1\"},  { \"var\" : \"value.PM10\" }, {\"ctx\": \"pm10-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]\r\n    \r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -635,9 +635,9 @@
 							"raw": "{\r\n  \"name\": \"no2-alert-level-reached-threshold2\",\r\n  \"dataPredicate\": {\r\n  \"and\": [{\r\n    \">\": [{\"var\": \"value.NO2\"},  {\"ctx\": \"no2-alert-threshold-2\"  }]\r\n  },\r\n  {\r\n    \"or\": [{\"==\": [{\"ctx\": \"no2-previous-day-medium-level-reached\"},true]},\r\n    {\"==\": [{\"ctx\": \"no2-previous-day-high-level-reached\"},true]}]\r\n  },\r\n  {\r\n    \"==\": [{\"var\": \"value.type\"},\"hourly\"]}]\r\n  },\r\n  \"enabled\": true\r\n\r\n}\r\n\r\n\r\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -681,9 +681,9 @@
 							"raw": "{\r\n  \"name\": \"pm10-info-level-reached\",\r\n  \"dataPredicate\": {     \"and\" :\r\n                [\r\n                   { \">\" : [ { \"var\" : \"value.avg-PM10\" }, {\"ctx\": \"pm10-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]},\r\n  \"enabled\": true\r\n\r\n}\r\n\r\n\r\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -715,9 +715,9 @@
 							"raw": "{\r\n  \"data\": {\r\n   \"streamId\": \"paris-centre-hourly\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_hourly\",\r\n   \"value\": {\r\n       \"type\":\"hourly\",\r\n      \"NO2\":201,\r\n      \"PM10\":15,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T02:00:00Z\"\r\n  },\r\n  \"dataPredicate\": {\r\n  \"and\": [{\r\n    \">\": [{\"var\": \"value.NO2\"},  {\"ctx\": \"no2-alert-threshold-2\"  }]\r\n  },\r\n  {\r\n    \"or\": [{\"==\": [{\"ctx\": \"no2-previous-day-medium-level-reached\"},true]},\r\n    {\"==\": [{\"ctx\": \"no2-previous-day-high-level-reached\"},true]}]\r\n  },\r\n  {\r\n    \"==\": [{\"var\": \"value.type\"},\"hourly\"]}]\r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -750,9 +750,9 @@
 							"raw": "{\r\n  \"data\": {\r\n    \"metadata\": {\r\n      \"connector\": \"http\"\r\n      },  \r\n   \"streamId\":  \"paris-centre-hourly\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_hourly\",\r\n   \"value\": {\r\n       \"type\":\"hourly\",\r\n      \"NO2\":300,\r\n      \"PM10\":15,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T02:00:00Z\"\r\n  },\r\n  \"dataPredicate\": {\r\n    \"and\" :\r\n                [\r\n                   { \">\" : [{ \"var\" : \"value.NO2\" }, {\"ctx\": \"no2-info-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]\r\n    \r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -785,9 +785,9 @@
 							"raw": "{\r\n  \"data\": {\r\n    \"metadata\": {\r\n      \"connector\": \"http\"\r\n      },  \r\n   \"streamId\":  \"paris-centre-hourly\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_hourly\",\r\n   \"value\": {\r\n       \"type\":\"hourly\",\r\n      \"avg-NO2\":300,\r\n      \"avg-PM10\":81,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T02:00:00Z\"\r\n  },\r\n  \"dataPredicate\": {\r\n    \"and\" :\r\n                [\r\n                   { \">\" : [{ \"var\" : \"value.avg-PM10\" }, {\"ctx\": \"pm10-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"hourly\"]}\r\n                ]\r\n    \r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -820,9 +820,9 @@
 							"raw": "{\r\n  \"data\": {\r\n    \"metadata\": {\r\n      \"connector\": \"http\"\r\n      },  \r\n   \"streamId\":  \"paris-centre-last-3-hours\",\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_last_three_hours\",\r\n   \"value\": {\r\n       \"type\":\"last_three_hours\",\r\n    \"data1\": {\"value\":{\"NO2\":420,\"PM10\":15},\"timestamp\":\"2017-07-27T01:00:00Z\"},\r\n    \"data2\": {\"value\": {\"NO2\":401,\"PM10\":25},\"timestamp\":\"2017-07-27T02:00:00Z\"},\r\n    \"data3\": {\"value\": {\"NO2\":420,\"PM10\":35},\"timestamp\":\"2017-07-27T03:00:00Z\"},\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T03:00:00Z\"\r\n  },\r\n  \"dataPredicate\": {\r\n    \"and\" :\r\n                [\r\n                   { \">\" : [ { \"var\" : \"value.data1.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   { \">\" : [ { \"var\" : \"value.data2.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   { \">\" : [ { \"var\" : \"value.data3.value.NO2\" }, {\"ctx\": \"no2-alert-threshold-1\"}]},\r\n                   {\"==\": [{ \"var\" : \"value.type\"}, \"last_three_hours\"]}\r\n                ]\r\n    \r\n  }\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/matching-rule/test",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/test",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -861,9 +861,9 @@
 							"raw": "{\r\n  \"aggregationKeys\": [\r\n    \"streamId\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"SLEEP\",\r\n  \"matchingRuleIds\": [\r\n    \"{{matchingRuleNO2InfoId}}\"\r\n  ],\r\n  \"name\": \"firing NO2 INFO\",\r\n  \"sleepDuration\": \"PT2H\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/firing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -895,9 +895,9 @@
 							"raw": "{\r\n  \"aggregationKeys\": [\r\n    \"streamId\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"SLEEP\",\r\n  \"matchingRuleIds\": [\r\n    \"{{matchingRulePM10InfoId}}\"\r\n  ],\r\n  \"name\": \"firing PM10 INFO\",\r\n    \"sleepDuration\": \"PT2H\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/firing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -929,9 +929,9 @@
 							"raw": "{\r\n  \"aggregationKeys\": [\r\n    \"streamId\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"ALWAYS\",\r\n  \"matchingRuleIds\": [\r\n    \"{{matchingRulePM10AlertId}}\"\r\n  ],\r\n  \"name\": \"firing PM10 ALERT\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/firing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -963,9 +963,9 @@
 							"raw": "{\r\n  \"aggregationKeys\": [\r\n    \"streamId\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"ALWAYS\",\r\n  \"matchingRuleIds\": [\r\n    \"{{matchingRuleNO2Alerting200Id}}\"\r\n  ],\r\n  \"name\": \"firing NO2 alert 200\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/firing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -997,9 +997,9 @@
 							"raw": "{\r\n  \"aggregationKeys\": [\r\n    \"streamId\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"ALWAYS\",\r\n  \"matchingRuleIds\": [\r\n    \"{{matchingRuleNO2Alerting400Id}}\"\r\n  ],\r\n  \"name\": \"firing NO2 alert 400\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/eventprocessing/firing-rule",
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1052,9 +1052,9 @@
 							"raw": "{\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_last_three_hours\",\r\n   \"value\": {\r\n       \"type\":\"last_three_hours\",\r\n    \"data1\": {\"value\":{\"NO2\":420,\"PM10\":16},\"timestamp\":\"2017-07-27T11:00:00Z\"},\r\n    \"data2\": {\"value\": {\"NO2\":401,\"PM10\":14},\"timestamp\":\"2017-07-27T12:00:00Z\"},\r\n    \"data3\": {\"value\": {\"NO2\":450,\"PM10\":17},\"timestamp\":\"2017-07-27T13:00:00Z\"},\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-27T13:00:00Z\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/streams/paris-centre-last-3-hours",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/paris-centre-last-3-hours",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1101,9 +1101,9 @@
 							"raw": "{\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_hourly\",\r\n   \"value\": {\r\n       \"type\":\"hourly\",\r\n      \"NO2\":450,\r\n      \"PM10\":41,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\": \"2017-07-27T14:00:00Z\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/streams/paris-centre-hourly",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/paris-centre-hourly",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1149,9 +1149,9 @@
 							"raw": "{\r\n    \"location\": {\r\n    \"lon\":2.2945, \"lat\" : 48.8584\r\n   },\r\n   \"model\": \"model_daily\",\r\n   \"value\": {\r\n       \"type\":\"daily\",\r\n      \"avg-NO2\":91.8,\r\n      \"avg-PM10\":20.6,\r\n      \"monitoring-station\":\"paris-centre\"\r\n   },\r\n   \"timestamp\":\"2017-07-28T00:00:00Z\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/streams/paris-centre-daily",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/paris-centre-daily",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1202,9 +1202,9 @@
 							"raw": "{\n    \"from\": 0,\n    \"size\": 10,\n    \"query\": {\n        \"filtered\": {\n            \"filter\": {\n                \"bool\":{\n                    \"must\":  [  \n                          {\n                              \"term\": {\n                                  \"streamId\": \"paris-centre-hourly\"\n                              }\n                          },\n                          {\n                              \"range\": {\n                                  \"timestamp\": {\n                                      \"gte\":\"{{dateStart}}\",\n                                      \"lt\":\"{{dateEnd}}\"\n                                  }\n                              }\n                          }  \n                    ]\n                }\n            }\n        }\n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/search",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1248,9 +1248,9 @@
 							"raw": "{\n    \"from\": 0,\n    \"size\": 10,\n    \"query\": {\n        \"filtered\": {\n            \"filter\": {\n                \"bool\":{\n                    \"must\":  [  \n                          {\n                              \"term\": {\n                                  \"streamId\": \"event:paris-centre-daily\"\n                              }\n                          },\n                          {\n                              \"range\": {\n                                  \"timestamp\": {\n                                      \"gte\":\"{{dateStart}}\",\n                                      \"lt\":\"{{dateEnd}}\"\n                                  }\n                              }\n                          }  \n                    ]\n                }\n            }\n        }\n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/search",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1294,9 +1294,9 @@
 							"raw": "{\n    \"from\": 0,\n    \"size\": 10,\n    \"query\": {\n        \"filtered\": {\n            \"filter\": {\n                \"bool\":{\n                    \"must\":  [  \n                          {\n                              \"term\": {\n                                  \"streamId\": \"event:paris-centre-last-3-hours\"\n                              }\n                          },\n                          {\n                              \"range\": {\n                                  \"timestamp\": {\n                                      \"gte\":\"{{dateStart}}\",\n                                      \"lt\":\"{{dateEnd}}\"\n                                  }\n                              }\n                          }  \n                    ]\n                }\n            }\n        }\n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/search",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1340,9 +1340,9 @@
 							"raw": "{\n    \"from\": 0,\n    \"size\": 10,\n    \"query\": {\n        \"filtered\": {\n            \"filter\": {\n                \"bool\":{\n                    \"must\":  [  \n                          {\n                              \"term\": {\n                                  \"streamId\": \"event:paris-centre-hourly\"\n                              }\n                          },\n                          {\n                              \"range\": {\n                                  \"timestamp\": {\n                                      \"gte\":\"{{dateStart}}\",\n                                      \"lt\":\"{{dateEnd}}\"\n                                  }\n                              }\n                          }  \n                    ]\n                }\n            }\n        }\n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/search",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
@@ -1386,9 +1386,9 @@
 							"raw": "{ \"size\":0,\n    \"query\": {\n        \"filtered\": {\n            \"filter\": {\n                \"bool\":{\n                    \"must\":  [  \n                          {\n                              \"term\": {\n                                  \"streamId\": \"paris-centre-hourly\"\n                              }\n                          },\n                          {\n                              \"range\": {\n                                  \"timestamp\": {\n                                      \"gte\":\"{{dateStart}}\",\n                                      \"lt\":\"{{dateEnd}}\"\n                                  }\n                              }\n                          }  \n                    ]\n                }\n            }\n        }\n    },\n    \"aggs\" : {\n          \"avg-NO2\" : { \n            \"avg\" : { \"field\" : \"@model_hourly.value.NO2\" } \n            \n          },\n          \"avg-PM10\" : { \n            \"avg\" : { \"field\" : \"@model_hourly.value.PM10\" } \n            \n          }\n    }\n}\n"
 						},
 						"url": {
-							"raw": "{{host}}/api/v0/data/search",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
 							"host": [
-								"{{host}}"
+								"https://liveobjects.orange-business.com"
 							],
 							"path": [
 								"api",
