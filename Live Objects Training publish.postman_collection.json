@@ -1,10 +1,9 @@
 {
-	"variables": [],
 	"info": {
 		"name": "Live Objects Training publish",
-		"_postman_id": "9a348ead-78b9-ef61-59c1-4af7ecd021c5",
+		"_postman_id": "9912b369-f0e8-2155-470b-c80ff5d91f01",
 		"description": "This collection is one of the Live Objects trainings support. You will find collection of requests on the following subjects :\r\n\r\n- Data zone\r\n- Rule Engine\r\n- Device management\r\n- MQTT Debug mode\r\n\r\n\r\nFor further technical informations, please check\r\n\r\n- the Swagger, the FAQ, the technical documentation : https://liveobjects.orange-business.com/#/faq\r\n- the stack overflow with orange-api tag or ask directly your question to our support : https://liveobjects.orange-business.com/#/support\r\n\r\nThis content will evolve with the permanent platform upgrades.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -14,6 +13,17 @@
 				{
 					"name": "Storage service - Retrieve data from a streamId",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=100",
 							"protocol": "https",
@@ -35,24 +45,27 @@
 									"value": "100",
 									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
-							}
-						],
-						"body": {},
 						"description": "Retreive the last 100 elements of the stream : android357329073120059"
 					},
 					"response": [
 						{
-							"id": "04d760ef-e716-4d35-a062-bb0d6e97f1fc",
+							"id": "90ba390d-297b-4687-82ee-d6f3d5f3b972",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"warning": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=100",
 									"protocol": "https",
@@ -72,26 +85,16 @@
 										{
 											"key": "limit",
 											"value": "100",
-											"equals": true,
-											"description": ""
+											"equals": true
 										}
-									],
-									"variable": []
+									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}",
-										"description": "",
-										"warning": ""
-									}
-								],
-								"body": {}
+								"description": ""
 							},
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "access-control-allow-headers",
@@ -193,7 +196,6 @@
 				{
 					"name": "Search service - simple request, ordered, stats",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 						"method": "POST",
 						"header": [
 							{
@@ -209,37 +211,66 @@
 							"mode": "raw",
 							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n    {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 100\r\n         }\r\n       }\r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
 						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"data",
+								"search"
+							]
+						},
 						"description": "Get the last 100 records where temperature > 100\n- Stream : android357329073120059\n- Model : \"demo\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "d7345ba5-79bd-4fbc-bbac-fc19dcf9cc81",
+							"id": "5cdd8122-3471-4a29-8d91-15b75d88aad6",
 							"name": "OAB App - fra.lelong - Temp > 100 ordered",
 							"originalRequest": {
-								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 								"method": "POST",
 								"header": [
 									{
 										"key": "X-API-KEY",
 										"value": "{{X-API-KEY}}",
-										"description": "",
 										"warning": ""
 									},
 									{
 										"key": "Content-Type",
 										"value": "application/json",
-										"description": "",
 										"warning": ""
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n    {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 100\r\n         }\r\n       }\r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
-								}
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"data",
+										"search"
+									]
+								},
+								"description": ""
 							},
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "access-control-allow-headers",
@@ -335,7 +366,6 @@
 				{
 					"name": "Search service - multi range request, ordered, with stats",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 						"method": "POST",
 						"header": [
 							{
@@ -351,37 +381,66 @@
 							"mode": "raw",
 							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@demo.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
 						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"data",
+								"search"
+							]
+						},
 						"description": "Multirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 20 < temperature < 50 And 30 < hygrometry < 80\n- StreamID : android357329073120059\n- Model : \"demo\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "9d9f033b-c12f-41b3-adee-0c0579d53287",
+							"id": "fc78bd2b-a322-43f8-9d66-4917153d736e",
 							"name": "OAB App - ELS - multi range",
 							"originalRequest": {
-								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 								"method": "POST",
 								"header": [
 									{
 										"key": "X-API-KEY",
 										"value": "{{X-API-KEY}}",
-										"description": "",
 										"warning": ""
 									},
 									{
 										"key": "Content-Type",
 										"value": "application/json",
-										"description": "",
 										"warning": ""
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@demo.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
-								}
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"data",
+										"search"
+									]
+								},
+								"description": ""
 							},
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "access-control-allow-headers",
@@ -477,7 +536,6 @@
 				{
 					"name": "Search service - multi range request, ordered, with stats, with another model",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 						"method": "POST",
 						"header": [
 							{
@@ -493,37 +551,66 @@
 							"mode": "raw",
 							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.revmin\" } }\r\n     }\r\n\r\n}"
 						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"data",
+								"search"
+							]
+						},
 						"description": "Multirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 20 < temperature < 50 And 30 < hygrometry < 80\n- StreamID : android357329073120059\n- Model : \"ModelOABDemoApp00\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "1953b93a-1bbb-43c9-964f-659ccc35582b",
+							"id": "3ca64cd7-3a6f-448a-850a-e7f0ab37e9d7",
 							"name": "Simul OAB App - multi range",
 							"originalRequest": {
-								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 								"method": "POST",
 								"header": [
 									{
 										"key": "X-API-KEY",
 										"value": "{{X-API-KEY}}",
-										"description": "",
 										"warning": ""
 									},
 									{
 										"key": "Content-Type",
 										"value": "application/json",
-										"description": "",
 										"warning": ""
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.revmin\" } }\r\n     }\r\n\r\n}"
-								}
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"data",
+										"search"
+									]
+								},
+								"description": ""
 							},
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "access-control-allow-headers",
@@ -619,7 +706,6 @@
 				{
 					"name": "Search service - Airparif pollution data - Multirange on CO & PM10, advanced stats",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 						"method": "POST",
 						"header": [
 							{
@@ -633,39 +719,68 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"StreamPushAirParif\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.CO\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 10000\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.PM10\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 500\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_CO\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.CO\" } },\r\n        \"stats_PM10\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n      \"percent PM10\" : { \"percentiles\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n      \"percent rank PM10\" : \r\n      {  \"percentile_ranks\" : \r\n          { \r\n            \"field\" : \"@SampleAirParif03.value.PM10\", \r\n              \"values\" : [10, 50, 100, 150, 200, 1000]\r\n            }\r\n      },      \r\n      \"percent rank PM25\" : \r\n      {  \"percentile_ranks\" : \r\n          { \r\n            \"field\" : \"@SampleAirParif03.value.PM25\", \r\n                    \"values\" : [10, 50, 100, 150, 200, 1000]\r\n          }\r\n      }      \r\n    }\r\n\r\n}"
+							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"StreamPushAirParif\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.CO\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 10000\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.PM10\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 500\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_CO\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.CO\" } },\r\n        \"stats_PM10\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n\t    \"percent PM10\" : { \"percentiles\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n\t    \"percent rank PM10\" : \r\n\t    {  \"percentile_ranks\" : \r\n\t        { \r\n\t        \t\"field\" : \"@SampleAirParif03.value.PM10\", \r\n\t            \"values\" : [10, 50, 100, 150, 200, 1000]\r\n            }\r\n    \t},      \r\n\t    \"percent rank PM25\" : \r\n\t    {  \"percentile_ranks\" : \r\n\t        { \r\n\t          \"field\" : \"@SampleAirParif03.value.PM25\", \r\n\t                  \"values\" : [10, 50, 100, 150, 200, 1000]\r\n\t        }\r\n\t    }      \r\n    }\r\n\r\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"data",
+								"search"
+							]
 						},
 						"description": "Multirange + advanced stats request on Paris pollution data.\n\nMultirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 0 < CO < 10000 And 0 < PM10 < 500\n- StreamID : StreamPushAirParif\n- Model : \"SampleAirParif03\"\n- Ordered by timestamp\n- stats : percentiles and percentile ranks\n\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"NO2\": 49,<br>\n  \"O3\": 11,<br>\n  \"Town\": \"Paris Centre\",<br>\n  \"PM25\": 15,<br>\n  \"PM10\": 28,<br>\n  \"CO\": 400<br>\n}<br>"
 					},
 					"response": [
 						{
-							"id": "8907d356-0546-43a5-b550-e78bbbddeeca",
+							"id": "983e84b7-89db-4e91-8f3e-73b7b9aab725",
 							"name": "StreamPushAirParif - multirange",
 							"originalRequest": {
-								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
 								"method": "POST",
 								"header": [
 									{
 										"key": "X-API-KEY",
 										"value": "{{X-API-KEY}}",
-										"description": "",
 										"warning": ""
 									},
 									{
 										"key": "Content-Type",
 										"value": "application/json",
-										"description": "",
 										"warning": ""
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"StreamPushAirParif\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.CO\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 10000\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.PM10\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 500\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_CO\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.CO\" } },\r\n        \"stats_PM10\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n      \"percent PM10\" : { \"percentiles\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n    \"percent rank PM10\" : {  \"percentile_ranks\" : \r\n        { \r\n          \"field\" : \"@SampleAirParif03.value.PM10\", \r\n                  \"values\" : [10, 50, 100, 150, 200, 1000]\r\n              }\r\n    },      \r\n    \"percent rank PM25\" : {  \"percentile_ranks\" : \r\n        { \r\n          \"field\" : \"@SampleAirParif03.value.PM25\", \r\n                  \"values\" : [10, 50, 100, 150, 200, 1000]\r\n              }\r\n    }      \r\n    }\r\n\r\n}"
-								}
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/data/search",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"data",
+										"search"
+									]
+								},
+								"description": ""
 							},
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
+							"_postman_previewtype": "html",
 							"header": [
 								{
 									"name": "access-control-allow-headers",
@@ -771,7 +886,6 @@
 						{
 							"name": "Create a simple MatchingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 								"method": "POST",
 								"header": [
 									{
@@ -787,6 +901,21 @@
 									"mode": "raw",
 									"raw": "{\n  \"dataPredicate\": \n\n  {\n    \">\": [\n        {\n            \"var\": \"value.temperature\"\n        },\n        20\n    ]\n  },\n  \"enabled\": true,\n  \"name\": \"Test temperature > 20\"\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"matching-rule"
+									]
+								},
 								"description": "Create a simple matching rule on 1 criteria"
 							},
 							"response": []
@@ -794,7 +923,6 @@
 						{
 							"name": "Create a multi-criteria MatchingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 								"method": "POST",
 								"header": [
 									{
@@ -810,6 +938,21 @@
 									"mode": "raw",
 									"raw": "{\n  \"dataPredicate\": \n\n  {\n  \"and\":\n    [\n      {\n          \"<\": [\n              {\n                  \"var\": \"value.hygrometry\"\n              },\n              80\n          ]\n      },\n      {\n          \">\": [\n              {\n                  \"var\": \"value.temperature\"\n              },\n              20\n          ]\n      }\n  \n    ]\n  },\n  \"enabled\": true,\n  \"name\": \"Test hygro < 80 && temp > 20\"\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"matching-rule"
+									]
+								},
 								"description": "Create a matching rule on 2 different data fields"
 							},
 							"response": []
@@ -817,7 +960,6 @@
 						{
 							"name": "Retrieve the list of MatchingRules for a tenant",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 								"method": "GET",
 								"header": [
 									{
@@ -829,15 +971,32 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
-								"description": null
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"matching-rule"
+									]
+								},
+								"description": ""
 							},
 							"response": []
 						},
 						{
 							"name": "Delete a MatchingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/e97cde01-6040-4318-a477-f0f67547b71a",
 								"method": "DELETE",
 								"header": [
 									{
@@ -850,7 +1009,26 @@
 										"disabled": true
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/e97cde01-6040-4318-a477-f0f67547b71a",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"matching-rule",
+										"e97cde01-6040-4318-a477-f0f67547b71a"
+									]
+								},
 								"description": "Put the matching rule Id into the request, here its Id is \"e97cde01-6040-4318-a477-f0f67547b71a\" :  </p>\nhttps://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule/e97cde01-6040-4318-a477-f0f67547b71a"
 							},
 							"response": []
@@ -865,7 +1043,6 @@
 						{
 							"name": "Create a new FiringRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 								"method": "POST",
 								"header": [
 									{
@@ -881,6 +1058,21 @@
 									"mode": "raw",
 									"raw": "{\r\n  \"name\": \"testFR0StreamSample02\",\r\n  \"enabled\": true,\r\n  \"matchingRuleIds\": [\"e97cde01-6040-4318-a477-f0f67547b71a\"],\r\n  \"aggregationKeys\": [\"metadata.source\"],\r\n  \"firingType\": \"ALWAYS\"\r\n}\r\n"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-rule"
+									]
+								},
 								"description": "Create a Firing rule that ALWAYS triggers the \"e97cde01-6040-4318-a477-f0f67547b71a\" MAtching Rule"
 							},
 							"response": []
@@ -888,7 +1080,6 @@
 						{
 							"name": "Retrieve the list of FiringRule for a tenant",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 								"method": "GET",
 								"header": [
 									{
@@ -900,15 +1091,32 @@
 										"value": "application/json"
 									}
 								],
-								"body": {},
-								"description": null
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-rule"
+									]
+								},
+								"description": ""
 							},
 							"response": []
 						},
 						{
 							"name": "Update a FiringRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10",
 								"method": "PUT",
 								"header": [
 									{
@@ -924,6 +1132,22 @@
 									"mode": "raw",
 									"raw": "{\r\n  \"aggregationKeys\": [\r\n  \"metadata.source\"\r\n  ],\r\n  \"enabled\": false,\r\n  \"firingType\": \"ALWAYS\",\r\n  \"id\": \"b87900ce-16f8-4b37-a723-78d23635ab10\",\r\n  \"matchingRuleIds\": [\r\n    \"31826629-94a5-410c-ad6d-4c201ce47330\"\r\n  ],\r\n  \"name\": \"Test hygro < 80 && temp > 20\"\r\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-rule",
+										"b87900ce-16f8-4b37-a723-78d23635ab10"
+									]
+								},
 								"description": "Here we disable the Firing rule (\"enabled\" : false) and update its name.\n\nPut the matching rule Id into the request, here its Id is \"b87900ce-16f8-4b37-a723-78d23635ab10\" : https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10"
 							},
 							"response": []
@@ -931,7 +1155,6 @@
 						{
 							"name": "Delete a FiringRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/d8b3ba30-e1fb-42fc-a176-34780682ed00",
 								"method": "DELETE",
 								"header": [
 									{
@@ -967,7 +1190,152 @@
 										}
 									]
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/d8b3ba30-e1fb-42fc-a176-34780682ed00",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-rule",
+										"d8b3ba30-e1fb-42fc-a176-34780682ed00"
+									]
+								},
 								"description": "Put the matching rule Id into the request, here its Id is \"d8b3ba30-e1fb-42fc-a176-34780682ed00\" : https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/d8b3ba30-e1fb-42fc-a176-34780682ed00"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Firing Guard management",
+					"description": "Firing Guard are used with the Firing rules that have a firingType at \"ONCE\". \nEach time an event is triggered, a Firing Guard is set to disable new event triggering.\nBy deleting a firing Guard, you anable the related Firing ruleto trigger an event.",
+					"item": [
+						{
+							"name": "Update a FiringRule to \"ONCE\"",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"aggregationKeys\": [\r\n  \"metadata.source\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"ONCE\",\r\n  \"id\": \"b87900ce-16f8-4b37-a723-78d23635ab10\",\r\n  \"matchingRuleIds\": [\r\n    \"31826629-94a5-410c-ad6d-4c201ce47330\"\r\n  ],\r\n  \"name\": \"Test hygro < 80 && temp > 20\"\r\n}"
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-rule",
+										"b87900ce-16f8-4b37-a723-78d23635ab10"
+									]
+								},
+								"description": "Here we set the Firing rule's firing type to \"ONCE\" and we enable it.\n\nPut the firing rule Id into the request, here its Id is \"b87900ce-16f8-4b37-a723-78d23635ab10\" : https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10"
+							},
+							"response": []
+						},
+						{
+							"name": "Get FiringGuards linked to a FiringRule, and where FiringGuards selection criteria match.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firingRuleId\": \"b87900ce-16f8-4b37-a723-78d23635ab10\",\r\n  \"selectionCriteria\":[\r\n  {\r\n    \"keyPath\":\"data.streamId\",\r\n    \"value\":\"android357329073120059\"\r\n  }\r\n  ]\r\n\r\n}"
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-guard/search",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-guard",
+										"search"
+									]
+								},
+								"description": "Get the list of Firing guards of the Firing rule \"b87900ce-16f8-4b37-a723-78d23635ab10\", filtered with the streamId android357329073120059\"\n\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
+							},
+							"response": []
+						},
+						{
+							"name": "Remove a FiringGuard from its id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-guard/b87900ce-16f8-4b37-a723-78d23635ab10-9403139ba9a13557e0e32ee7e47b1489",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"firing-guard",
+										"b87900ce-16f8-4b37-a723-78d23635ab10-9403139ba9a13557e0e32ee7e47b1489"
+									]
+								},
+								"description": "Removing the firing guard enable the event to trigger \"ONCE\" more\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
 						}
@@ -981,7 +1349,6 @@
 						{
 							"name": "Create a new StateProcessingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
 								"method": "POST",
 								"header": [
 									{
@@ -1001,6 +1368,21 @@
 									"mode": "raw",
 									"raw": "{\r\n        \"name\": \"temperature state rule\",\r\n        \"enabled\": true,\r\n        \"stateKeyPath\": \"streamId\",\r\n        \"stateFunction\": {\r\n                \"if\": [{\r\n                        \"<\": [{\r\n                                \"var\": \"value.temperature\"\r\n                        },\r\n                        0]\r\n                },\r\n                \"cold\",\r\n                {\r\n                        \"<\": [{\r\n                                \"var\": \"value.temperature\"\r\n                        },\r\n                        60]\r\n                },\r\n                \"normal\",\r\n                \"hot\"]\r\n        }\r\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"stateprocessing-rule"
+									]
+								},
 								"description": "Creates a temperature State processing logic with 3 states :</p>\n    <li>if temperature is below 0 degree Celsius, sensor state is cold.</li>\n    <li>if temperature is between 0 and 60 degrees Celsius sensor state is normal.</li>\n    <li>if temperature is higher than 100 degrees Celsius sensor state is hot.</li>\n</p>\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1008,7 +1390,6 @@
 						{
 							"name": "Retrieve the list of all the StateProcessingRules or get a StateProcessingRule by its name",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
 								"method": "GET",
 								"header": [
 									{
@@ -1025,7 +1406,25 @@
 										"value": "{{X-API-KEY}}"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"stateprocessing-rule"
+									]
+								},
 								"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
 							},
 							"response": []
@@ -1033,7 +1432,6 @@
 						{
 							"name": "Delete a StateProcessingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/3c6184c4-d64a-4106-8f4f-70fd5771e499",
 								"method": "DELETE",
 								"header": [
 									{
@@ -1049,7 +1447,26 @@
 										"value": "{{X-API-KEY}}"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/3c6184c4-d64a-4106-8f4f-70fd5771e499",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"stateprocessing-rule",
+										"3c6184c4-d64a-4106-8f4f-70fd5771e499"
+									]
+								},
 								"description": "Put the rule Id into the request, here its Id is \"3c6184c4-d64a-4106-8f4f-70fd5771e499\" : https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/3c6184c4-d64a-4106-8f4f-70fd5771e499 </p>\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1057,7 +1474,6 @@
 						{
 							"name": "Update a StateProcessingRule",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/5dd059d6-19c0-4150-a054-cca11cdf9134",
 								"method": "PUT",
 								"header": [
 									{
@@ -1077,6 +1493,22 @@
 									"mode": "raw",
 									"raw": "{\r\n        \"id\":\"5dd059d6-19c0-4150-a054-cca11cdf9134\",\r\n        \"name\": \"temperature state rule\",\r\n        \"enabled\": false,\r\n        \"stateKeyPath\": \"streamId\",\r\n        \"stateFunction\": {\r\n                \"if\": [{\r\n                        \"<\": [{\r\n                                \"var\": \"value.temperature\"\r\n                        },\r\n                        0]\r\n                },\r\n                \"cold\",\r\n                {\r\n                        \"<\": [{\r\n                                \"var\": \"value.temperature\"\r\n                        },\r\n                        60]\r\n                },\r\n                \"normal\",\r\n                \"hot\"]\r\n        }\r\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/stateprocessing-rule/5dd059d6-19c0-4150-a054-cca11cdf9134",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"eventprocessing",
+										"stateprocessing-rule",
+										"5dd059d6-19c0-4150-a054-cca11cdf9134"
+									]
+								},
 								"description": "Disable the State processing rule \n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1091,28 +1523,38 @@
 						{
 							"name": "Notification : sending email",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/contact",
 								"method": "POST",
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json",
-										"description": ""
+										"value": "application/json"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
+										"value": "application/json"
 									},
 									{
 										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}",
-										"description": ""
+										"value": "{{X-API-KEY}}"
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n \"contact\": \r\n  {\r\n    \"to\": [\r\n      \"xx.yy@orange.fr\",\"zz.tt@orange.fr\"\r\n    ],\r\n    \"cc\": [\r\n      \"uu.vv@gmail.com\"\r\n    ],\r\n    \"cci\": [\r\n      \"aa.ww@live.com\"\r\n    ]\r\n  },\r\n  \"message\": {\r\n     \"title\": \"Hello\",\r\n     \"content\": \"Hello World !\"\r\n  }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/contact",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"contact"
+									]
 								},
 								"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
@@ -1121,28 +1563,38 @@
 						{
 							"name": "Notification : sending SMS",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/contact",
 								"method": "POST",
 								"header": [
 									{
 										"key": "Accept",
-										"value": "application/json",
-										"description": ""
+										"value": "application/json"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
+										"value": "application/json"
 									},
 									{
 										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}",
-										"description": ""
+										"value": "{{X-API-KEY}}"
 									}
 								],
 								"body": {
 									"mode": "raw",
 									"raw": "\r\n{\r\n \"contact\": \r\n  {\r\n    \"phoneNumbers\": [\r\n      \"+33612345678\" \r\n    ]\r\n  },\r\n  \"message\": {\r\n     \"content\": \"Hello World !\"\r\n  }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/contact",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"contact"
+									]
 								},
 								"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
@@ -1158,7 +1610,6 @@
 						{
 							"name": "Create a new action policy",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
 								"method": "POST",
 								"header": [
 									{
@@ -1178,6 +1629,21 @@
 									"mode": "raw",
 									"raw": "{\r\n    \"name\": \"Test EventToAction app Android\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"b87900ce-16f8-4b37-a723-78d23635ab10\"]\r\n    },\r\n    \"actions\": {\r\n        \"emails\": [{\"cc\": [], \"cci\": [], \"to\": [\"xx.yy@orange.fr\", \"zz.tt@orange.fr\"],\r\n        \"subjectTemplate\": \"Hygro < 80 && Temp > 20\",\r\n        \"contentTemplate\": \"seuil dépassé. <br/> Localisation GPS : {{matchingContext.data.location}} <br/> Temperature {{matchingContext.data.value.temperature}} <br/> Hygrometry {{matchingContext.data.value.hygrometry}}\"\r\n        }],\r\n       \"sms\": [{\r\n            \"destinationPhoneNumbers\": [\"+33612345678\"],\r\n            \"contentTemplate\": \"seuil dépassé. Localisation GPS : {{matchingContext.data.location}}, temperature {{matchingContext.data.value.temperature}}\"\r\n        }]  \r\n    }\r\n}\r\n"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"event2action",
+										"actionPolicies"
+									]
+								},
 								"description": "Creates a new action policy related to one Firing rule (here : \"b87900ce-16f8-4b37-a723-78d23635ab10\"). \nThis policy makes 2 action \n- 1 mail to xx.yy@orange.fr and zz.tt@orange.fr\n- 1 sms to +33612345678\n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1185,6 +1651,25 @@
 						{
 							"name": "List action policies",
 							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies?size=20&page=0",
 									"protocol": "https",
@@ -1210,25 +1695,8 @@
 											"value": "0",
 											"equals": true
 										}
-									],
-									"variable": []
+									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									}
-								],
-								"body": {},
 								"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
 							},
 							"response": []
@@ -1236,7 +1704,6 @@
 						{
 							"name": "Delete an action policy",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
 								"method": "DELETE",
 								"header": [
 									{
@@ -1252,7 +1719,26 @@
 										"value": "{{X-API-KEY}}"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"event2action",
+										"actionPolicies",
+										"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a"
+									]
+								},
 								"description": "Put the Action Id into the request, here its Id is \"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a <br>\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1260,7 +1746,6 @@
 						{
 							"name": "Save or update an action policy",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
 								"method": "PUT",
 								"header": [
 									{
@@ -1280,6 +1765,22 @@
 									"mode": "raw",
 									"raw": "{\r\n    \"name\": \"Test EventToAction app Android updated\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"b87900ce-16f8-4b37-a723-78d23635ab10\"]\r\n    },\r\n    \"actions\": {\r\n        \"emails\": [{\"cc\": [], \"cci\": [], \"to\": [\"xx.yy@orange.fr\", \"zz.tt@orange.fr\"],\r\n        \"subjectTemplate\": \"Hygro < 80 && Temp > 20\",\r\n        \"contentTemplate\": \"Threshold exceeded. <br/> - Temperature: {{matchingContext.data.value.temperature}} <br/> - Hygrometry: {{matchingContext.data.value.hygrometry}} <br/> <br/> - GPS Location: {{matchingContext.data.location}} <br/> <img width=\\\"300\\\" src=\\\"https://maps.googleapis.com/maps/api/staticmap?center={{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}}&zoom=15&size=300x300&markers=color:red%7Clabel:A%7C{{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}}\\\"> <br/> <p> https://www.google.fr/maps/@{{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}},13z </p>\" \r\n        }],\r\n       \"sms\": [{\r\n            \"destinationPhoneNumbers\": [\"+33612345678\"],\r\n            \"contentTemplate\": \"Seuil dépassé Hygro < 80 && Temp > 20\"\r\n        }]  \r\n    }\r\n}"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"event2action",
+										"actionPolicies",
+										"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a"
+									]
+								},
 								"description": "Update the action policy by adding into the the mail body a google map related to the device location.<br>\n\nIt is possible to temporary disable the policy by setting \"enable\" to false<br>\n\nPut the action Id into the request, here its Id is \"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
@@ -1290,29 +1791,402 @@
 			]
 		},
 		{
+			"name": "Push Http",
+			"description": "This section will show how to do a push http.\nWe will do 3 scenarios that push data to IFTTT :\n- all the data\n- triggered on a matching/firing rule\n- triggered on tagged devices\n\nThis section will use the Rule Engine features",
+			"item": [
+				{
+					"name": "Push all data to IFTTT - Create a new push http Event to action",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Push all data to IFTTT - Twitter\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"messageSelector\": {\r\n        \t\"origin\": \"data_new\"\r\n        }\r\n    },\r\n    \"actions\": {\r\n       \"httpPush\": [{\r\n\t\t\t\"webhookUrl\": \"https://maker.ifttt.com/trigger/test/with/key/<!Put your IFTTT key here!>\",\r\n\t\t\t\"retryOnFailure\": true,\r\n\t\t\t\"content\": \"{ \\\"value1\\\" : \\\"{{streamId}}\\\", \\\"value2\\\" : \\\"{{value.temperature}}\\\", \\\"value3\\\" : \\\"{{value.hygrometry}}\\\" }\"\r\n        }]  \r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies"
+							]
+						},
+						"description": "Creates a new action policy that will send all the received data to an IFTTT Webhook. <br>\nIt will embed into the content the streamId, and 2 values : temperature and hygrometry \n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+					},
+					"response": []
+				},
+				{
+					"name": "Update action policy push http to IFTTT for all data",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Push all data to IFTTT - Twitter\",\r\n    \"enabled\": false,\r\n    \"triggers\": {\r\n        \"messageSelector\": {\r\n        \t\"origin\": \"data_new\"\r\n        }\r\n    },\r\n    \"actions\": {\r\n       \"httpPush\": [{\r\n\t\t\t\"webhookUrl\": \"https://maker.ifttt.com/trigger/test/with/key/<!Put your IFTTT key here!>\",\r\n\t\t\t\"retryOnFailure\": true,\r\n\t\t\t\"content\": \"{ \\\"value1\\\" : \\\"{{streamId}}\\\", \\\"value2\\\" : \\\"{{value.temperature}}\\\", \\\"value3\\\" : \\\"{{value.hygrometry}}\\\" }\"\r\n        }]  \r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/46d1be3e-af61-45e3-a5bc-fc36ec75a909",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies",
+								"46d1be3e-af61-45e3-a5bc-fc36ec75a909"
+							]
+						},
+						"description": "Temporary disable the policy by setting \"enable\" to false<br>\n\nPut the Action Id into the request, here its Id is \"46d1be3e-af61-45e3-a5bc-fc36ec75a909\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/46d1be3e-af61-45e3-a5bc-fc36ec75a909\n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+					},
+					"response": []
+				},
+				{
+					"name": "Push triggered event related data to IFTTT - Create a new push http Event to action",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Push to IFTTT on triggered event - Twitter\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"b87900ce-16f8-4b37-a723-78d23635ab10\"]\r\n    },\r\n    \"actions\": {\r\n       \"httpPush\": [{\r\n      \"webhookUrl\": \"https://maker.ifttt.com/trigger/Temperature/with/key/<!Put your IFTTT key here!>\",\r\n      \"retryOnFailure\": true,\r\n      \"content\": \"{ \\\"value1\\\" : \\\"{{matchingContext.data.streamId}}\\\", \\\"value2\\\" : \\\"{{matchingContext.data.value.temperature}}\\\", \\\"value3\\\" : \\\"{{matchingContext.data.value.hygrometry}}\\\" }\"        }]  \r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies"
+							]
+						},
+						"description": "Creates a new action policy that will push the data that have triggered an event to an IFTTT Webhook. <br>\nIt will embed into the content the streamId, and 2 values : temperature and hygrometry \n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+					},
+					"response": []
+				},
+				{
+					"name": "Update action policy push http to IFTTT on triggered event",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Push to IFTTT on triggered event - Twitter\",\r\n    \"enabled\": false,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"b87900ce-16f8-4b37-a723-78d23635ab10\"]\r\n    },\r\n    \"actions\": {\r\n       \"httpPush\": [{\r\n      \"webhookUrl\": \"https://maker.ifttt.com/trigger/Temperature/with/key/<!Put your IFTTT key here!>\",\r\n      \"retryOnFailure\": true,\r\n      \"content\": \"{ \\\"value1\\\" : \\\"{{matchingContext.data.streamId}}\\\", \\\"value2\\\" : \\\"{{matchingContext.data.value.temperature}}\\\", \\\"value3\\\" : \\\"{{matchingContext.data.value.hygrometry}}\\\" }\"\r\n        }]  \r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/785fc6c8-46a4-45bf-af9e-85ecbde1e3c5",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies",
+								"785fc6c8-46a4-45bf-af9e-85ecbde1e3c5"
+							]
+						},
+						"description": "Temporary disable the policy by setting \"enable\" to false<br>\n\nPut the Action Id into the request, here its Id is \"785fc6c8-46a4-45bf-af9e-85ecbde1e3c5\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/785fc6c8-46a4-45bf-af9e-85ecbde1e3c5\n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+					},
+					"response": []
+				},
+				{
+					"name": "Push all data from tagged devices - 1) Create a new MatchingRule Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"dataPredicate\": \n\n  {\n    \"in\":\n    [ \n      \"httppush\", {\"var\" : \"tags\"} \n    ]\n    \n  },\n  \"enabled\": true,\n  \"name\": \"Test tag pour http push\"\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"matching-rule"
+							]
+						},
+						"description": "On these next requests we will create a set of Matching rule, Firing rule and Action policy that enable to push data from tagged devices to a fictive http address\n\n1) Create a matching rule that will trigger when the sending device has a tag set to \"httppush\""
+					},
+					"response": []
+				},
+				{
+					"name": "Push all data from tagged devices - Retrieve the list of MatchingRules for a tenant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"matching-rule"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Push all data from tagged devices - 2) Create a new FiringRule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test Push Lora Tag\",\r\n  \"enabled\": true,\r\n  \"matchingRuleIds\": [\"20f6f86f-1e4d-4610-8ed9-31a40f6b0935\"],\r\n  \"aggregationKeys\": [\"metadata.source\"],\r\n  \"firingType\": \"ALWAYS\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"firing-rule"
+							]
+						},
+						"description": "Create an \"ALWAYS\" Firing rule binded to the previously created Matching rule, here its Id is \"20f6f86f-1e4d-4610-8ed9-31a40f6b0935\""
+					},
+					"response": []
+				},
+				{
+					"name": "Push all data from tagged devices - Retrieve the list of FiringRule for a tenant",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"firing-rule"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Push all data from tagged devices - 3) Create a new action policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Push Lora Tag\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"1e045594-a324-492b-927c-d57da5b65771\"]\r\n    },\r\n    \"actions\": {\r\n      \"httpPush\": [{\r\n      \"webhookUrl\": \"https://www.fictiveaddress.com\",\r\n      \"retryOnFailure\": true,\r\n      \"content\": \"{ \\\"value1\\\" : \\\"{{matchingContext.data.location}}\\\", \\\"value2\\\" : \\\"{{matchingContext.data.value.payload}}\\\" }\"        \r\n      \t\r\n      }]  \r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies"
+							]
+						},
+						"description": "Creates an action Policy that will push Lora data to a fictive http address when the previously created Firing rule will trigger (here its id = \"1e045594-a324-492b-927c-d57da5b65771\")"
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Push Data from Lora Devices",
 			"description": "Set of rules to send all the data from a Lora device outside of the platform by using a Tag (\"httppush\"). \nYou must first have set this tag into your lora device properties through the portal or APIs\n\nPlease refer to the Matching rule/Firing rule/Event to action sections\n\nToday we send a mail containing the Lora payload. We will extend that to a push Http soon\n",
 			"item": [
 				{
 					"name": "Push Lora - Create a new MatchingRule Tag",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"dataPredicate\": \n\n  {\n    \"in\":\n    [ \n      \"httppush\", {\"var\" : \"tags\"} \n    ]\n    \n  },\n  \"enabled\": true,\n  \"name\": \"Test tag pour http push\"\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"matching-rule"
+							]
 						},
 						"description": "Create a matching rule that will trigger when the sending device has a tag set to \"httppush\""
 					},
@@ -1321,45 +2195,72 @@
 				{
 					"name": "Push Lora - Retrieve the list of MatchingRules for a tenant",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
-						"body": {},
-						"description": null
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/matching-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"matching-rule"
+							]
+						},
+						"description": ""
 					},
 					"response": []
 				},
 				{
 					"name": "Push Lora - Create a new FiringRule",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 						"method": "POST",
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"name\": \"Test Push Lora Tag\",\r\n  \"enabled\": true,\r\n  \"matchingRuleIds\": [\"342be334-c3f6-406e-945e-77843228aa4d\"],\r\n  \"aggregationKeys\": [\"metadata.source\"],\r\n  \"firingType\": \"ALWAYS\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"firing-rule"
+							]
 						},
 						"description": "Create an \"ALWAYS\" Firing rule binded to the previously created Matching rule, here its Id is \"342be334-c3f6-406e-945e-77843228aa4d\""
 					},
@@ -1368,50 +2269,76 @@
 				{
 					"name": "Push Lora - Retrieve the list of FiringRule for a tenant",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
 						"method": "GET",
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
-						"body": {},
-						"description": null
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"eventprocessing",
+								"firing-rule"
+							]
+						},
+						"description": ""
 					},
 					"response": []
 				},
 				{
 					"name": "Push Lora - Create a new action policy",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
 						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"name\": \"Test Push Lora Tag\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"fbdc2dc5-3058-47c7-84ae-7d4d3e2097e1\"]\r\n    },\r\n    \"actions\": {\r\n        \"emails\": [\r\n          {\"cc\": [], \"cci\": [], \"to\": [\"xx.yy@orange.fr\"],\r\n            \"subjectTemplate\": \"Test Lora\",\r\n            \"contentTemplate\": \"Donnée Lora. <br/> Localisation GPS : {{matchingContext.data.location}} <br/> Payload {{matchingContext.data.value.payload}} \"\r\n            }\r\n        ]\r\n\r\n    }\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies"
+							]
 						},
 						"description": "Creates an action Policy that will bind a mail sending to the previously created Firing rule (here its id = \"fbdc2dc5-3058-47c7-84ae-7d4d3e2097e1\")"
 					},
@@ -1420,6 +2347,25 @@
 				{
 					"name": "Push Lora - List action policies",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies?size=20&page=0",
 							"protocol": "https",
@@ -1438,37 +2384,15 @@
 								{
 									"key": "size",
 									"value": "20",
-									"equals": true,
-									"description": ""
+									"equals": true
 								},
 								{
 									"key": "page",
 									"value": "0",
-									"equals": true,
-									"description": ""
+									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
-							}
-						],
-						"body": {},
 						"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
 					},
 					"response": []
@@ -1476,28 +2400,40 @@
 				{
 					"name": "Push Lora - Save or update an action policy",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/e84a5736-9f82-4e5e-8e80-967bcdced8dc",
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"name\": \"Test Push Lora Tag\",\r\n    \"enabled\": false,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"fbdc2dc5-3058-47c7-84ae-7d4d3e2097e1\"]\r\n    },\r\n    \"actions\": {\r\n        \"emails\": [\r\n          {\"cc\": [], \"cci\": [], \"to\": [\"xx.yy@orange.com\"],\r\n            \"subjectTemplate\": \"Test Lora\",\r\n            \"contentTemplate\": \"Donnée Lora. <br/> Localisation GPS : {{matchingContext.data.location}} <br/> Payload {{matchingContext.data.value.payload}} \"\r\n            }\r\n        ]\r\n\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/e84a5736-9f82-4e5e-8e80-967bcdced8dc",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies",
+								"e84a5736-9f82-4e5e-8e80-967bcdced8dc"
+							]
 						},
 						"description": "Udate the action policy to disable it (\"enabled\": false)<br>\n\nPut the action Id into the request, here its Id is \"e84a5736-9f82-4e5e-8e80-967bcdced8dc\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/e84a5736-9f82-4e5e-8e80-967bcdced8dc <br>"
 					},
@@ -1506,26 +2442,41 @@
 				{
 					"name": "Push Lora - delete an action policy",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							},
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}",
-								"description": ""
+								"value": "{{X-API-KEY}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"event2action",
+								"actionPolicies",
+								"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a"
+							]
+						},
 						"description": "Put the action Id into the request, here its Id is \"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a"
 					},
 					"response": []
@@ -1543,7 +2494,6 @@
 						{
 							"name": "Create a new campaign",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns",
 								"method": "POST",
 								"header": [
 									{
@@ -1563,6 +2513,21 @@
 									"mode": "raw",
 									"raw": "{\r\n  \"description\": \"A campaign that configures parameters, sends command or updates a resource\",\r\n  \"name\": \"My Campaign Android Franck\",\r\n  \"operations\": [\r\n    {\r\n      \"action\": \"configure\",\r\n      \"definition\": {\r\n        \"assetParameters\": {\r\n          \"updateRate\": {\r\n            \"type\": \"INT32\",\r\n            \"valueInt32\": 10\r\n          }\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"action\": \"command\",\r\n      \"definition\": {\r\n        \"event\": \"buzzer\"\r\n      }\r\n    }\r\n  ],\r\n  \"planning\": {\r\n    \"startDate\": \"2018-02-04T09:23:11Z\",\r\n    \"endDate\": \"2119-07-20T15:23:11Z\"\r\n  },\r\n  \"targets\": {\r\n    \"idList\": [\r\n      \"urn:lo:nsid:android:357329073120059\"\r\n    ]\r\n  }\r\n}\r\n"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"deviceMgt",
+										"campaigns"
+									]
+								},
 								"description": "Create a new Campaign \n- on 1 device : \"urn:lo:nsid:android:357329073120059\"\n- update the configuration \"updateRate\"\n- send a command \"buzzer\"\n\n\nRestricted to API keys with at least one of the following roles : CAMPAIGN_W."
 							},
 							"response": []
@@ -1570,6 +2535,25 @@
 						{
 							"name": "List all campaigns",
 							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{keyCampaign}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns?size=20&page=0",
 									"protocol": "https",
@@ -1595,25 +2579,8 @@
 											"value": "0",
 											"equals": true
 										}
-									],
-									"variable": []
+									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{keyCampaign}}"
-									}
-								],
-								"body": {},
 								"description": "Restricted to API keys with at least one of the following roles : CAMPAIGN_R."
 							},
 							"response": []
@@ -1621,7 +2588,6 @@
 						{
 							"name": "Update a campaign",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns/ce6d8860f8f0471e87fd82255d55d102",
 								"method": "PATCH",
 								"header": [
 									{
@@ -1641,6 +2607,22 @@
 									"mode": "raw",
 									"raw": "{\r\n  \"description\": \"A campaign that configures parameters, sends command or updates a resource\",\r\n  \"name\": \"My Campaign Android Franck updated\",\r\n  \"operations\": [\r\n    {\r\n      \"action\": \"configure\",\r\n      \"definition\": {\r\n        \"assetParameters\": {\r\n          \"updateRate\": {\r\n            \"type\": \"INT32\",\r\n            \"valueInt32\": 5\r\n          }\r\n        }\r\n      }\r\n    },\r\n    {\r\n      \"action\": \"command\",\r\n      \"definition\": {\r\n        \"event\": \"buzzer\"\r\n      }\r\n    },\r\n    {\r\n      \"action\": \"resource\",\r\n      \"definition\": {\r\n        \"resourceId\":\"demo_splash_screen\",\r\n        \"targetVersion\":\"V5\",\r\n        \"sourceVersion\":\"V4\"\r\n      }\r\n    }\r\n  ],\r\n  \"planning\": {\r\n    \"startDate\": \"2018-01-10T09:23:11Z\",\r\n    \"endDate\": \"2119-07-20T15:23:11Z\"\r\n  },\r\n  \"targets\": {\r\n    \"idList\": [\r\n      \"urn:lo:nsid:android:357329073120059\"\r\n    ]\r\n  }\r\n}\r\n"
 								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns/ce6d8860f8f0471e87fd82255d55d102",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"deviceMgt",
+										"campaigns",
+										"ce6d8860f8f0471e87fd82255d55d102"
+									]
+								},
 								"description": "Update the Campaign \"ce6d8860f8f0471e87fd82255d55d102\"\n\n- Add a firmware update : from version V4 to version V5\n\nNote : the update can only apply if the \"startDate\" is after the current date/time \n\nRestricted to API keys with at least one of the following roles : CAMPAIGN_W."
 							},
 							"response": []
@@ -1648,7 +2630,6 @@
 						{
 							"name": "Delete the specified campaign",
 							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns/d077f524d30648d2907dd870848c7869",
 								"method": "DELETE",
 								"header": [
 									{
@@ -1664,7 +2645,26 @@
 										"value": "{{keyCampaign}}"
 									}
 								],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns/d077f524d30648d2907dd870848c7869",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"deviceMgt",
+										"campaigns",
+										"d077f524d30648d2907dd870848c7869"
+									]
+								},
 								"description": "Put the Campaign Id into the request, here its Id is \"d077f524d30648d2907dd870848c7869\" : https://liveobjects.orange-business.com/api/v0/deviceMgt/campaigns/d077f524d30648d2907dd870848c7869\n\nRestricted to API keys with at least one of the following roles : CAMPAIGN_W."
 							},
 							"response": []
@@ -1679,6 +2679,25 @@
 						{
 							"name": "List asset's resources <=> get the firmware Id",
 							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "https://liveobjects.orange-business.com/api/v0/rm/asset/android/357329073120059?size=20&page=0",
 									"protocol": "https",
@@ -1706,25 +2725,8 @@
 											"value": "0",
 											"equals": true
 										}
-									],
-									"variable": []
+									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									}
-								],
-								"body": {},
 								"description": "Get the firmware Id of the device\n\nRestricted to API keys with at least one of the following roles : DEVICE_R."
 							},
 							"response": []
@@ -1732,6 +2734,21 @@
 						{
 							"name": "Get the asset's resources update history",
 							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "https://liveobjects.orange-business.com/api/v0/rm/asset/android/357329073120059/update/history?size=20&page=0",
 									"protocol": "https",
@@ -1761,22 +2778,9 @@
 											"value": "0",
 											"equals": true
 										}
-									],
-									"variable": []
+									]
 								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {},
-								"description": null
+								"description": ""
 							},
 							"response": []
 						}
@@ -1792,6 +2796,17 @@
 				{
 					"name": "Listing all the API keys",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://liveobjects.orange-business.com/api/v0/apiKeys?size=20&showSessionKeys=false",
 							"protocol": "https",
@@ -1816,17 +2831,8 @@
 									"value": "false",
 									"equals": true
 								}
-							],
-							"variable": []
+							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
-							}
-						],
-						"body": {},
 						"description": "Returns a list of API keys associated to a tenant. <br>\nThe \"label\" field will help you to find the Id."
 					},
 					"response": []
@@ -1834,7 +2840,6 @@
 				{
 					"name": "MQTT Debug - Activate/desactivate",
 					"request": {
-						"url": "https://liveobjects.orange-business.com/api/v0/apiKeys/5948eeb20cf244dc3f90f83a/debugMode",
 						"method": "PUT",
 						"header": [
 							{
@@ -1854,6 +2859,22 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"activated\":true,\r\n  \"durationSeconds\":3600\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/apiKeys/5948eeb20cf244dc3f90f83a/debugMode",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"apiKeys",
+								"5948eeb20cf244dc3f90f83a",
+								"debugMode"
+							]
 						},
 						"description": "Put the key Id into the request, here its Id is \"5948eeb20cf244dc3f90f83a\" : https://liveobjects.orange-business.com/api/v0/apiKeys/5948eeb20cf244dc3f90f83a/debugMode <br>\n<br>\nSet \"activated\" at true and put a duration in seconds"
 					},
