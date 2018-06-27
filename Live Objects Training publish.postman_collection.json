@@ -15,7 +15,7 @@
 					"name": "Storage service - Retrieve data from a streamId",
 					"request": {
 						"url": {
-							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=100",
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=1000",
 							"protocol": "https",
 							"host": [
 								"liveobjects",
@@ -32,8 +32,9 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "100",
-									"equals": true
+									"value": "1000",
+									"equals": true,
+									"description": ""
 								}
 							],
 							"variable": []
@@ -42,15 +43,16 @@
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
+								"value": "{{X-API-KEY}}",
+								"description": ""
 							}
 						],
 						"body": {},
-						"description": "Retreive the last 100 elements of the stream : android357329073120059"
+						"description": "Retreive the last 1000 elements of the stream : android357329073120059\nYou cannot request more than 1000 elements through this request, you need to manage bookmarks with successive requests. In order to set a bookmark, get the \"id\" of the last retreived document and use it as a bookmark. \nIn this example the last data has the following id :  \"id\": \"5ae0442fc74a496d16df30cc\"\nSee the next request."
 					},
 					"response": [
 						{
-							"id": "f7297b6d-02be-4e12-af98-b8e527ecc6f8",
+							"id": "aad72acf-9a53-444b-a0eb-f87905b9f3da",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
 								"url": {
@@ -191,6 +193,193 @@
 					]
 				},
 				{
+					"name": "Storage service - Retrieve data from a streamId with bookmark",
+					"request": {
+						"url": {
+							"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=1000&bookmarkId=5ae043cbc74a496d16df2dae",
+							"protocol": "https",
+							"host": [
+								"liveobjects",
+								"orange-business",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"data",
+								"streams",
+								"android357329073120059"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1000",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "bookmarkId",
+									"value": "5ae043cbc74a496d16df2dae",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{X-API-KEY}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Retreive the next 1000 elements of the stream android357329073120059, following the id : 5ae0442fc74a496d16df30cc"
+					},
+					"response": [
+						{
+							"id": "89a38a1f-e639-4ea5-a7a6-93720c37bc23",
+							"name": "Retrieve data from the streamId",
+							"originalRequest": {
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/data/streams/android357329073120059?limit=100",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"data",
+										"streams",
+										"android357329073120059"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": "",
+										"warning": ""
+									}
+								],
+								"body": {}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"name": "access-control-allow-headers",
+									"key": "access-control-allow-headers",
+									"value": "X-Requested-With, Content-Type, X-IAE-KEY, X-XSRF-TOKEN, X-API-KEY",
+									"description": ""
+								},
+								{
+									"name": "access-control-allow-origin",
+									"key": "access-control-allow-origin",
+									"value": "*",
+									"description": ""
+								},
+								{
+									"name": "cache-control",
+									"key": "cache-control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate",
+									"description": ""
+								},
+								{
+									"name": "connection",
+									"key": "connection",
+									"value": "keep-alive",
+									"description": ""
+								},
+								{
+									"name": "content-type",
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"description": ""
+								},
+								{
+									"name": "date",
+									"key": "date",
+									"value": "Thu, 23 Nov 2017 16:01:23 GMT",
+									"description": ""
+								},
+								{
+									"name": "expires",
+									"key": "expires",
+									"value": "0",
+									"description": ""
+								},
+								{
+									"name": "pragma",
+									"key": "pragma",
+									"value": "no-cache",
+									"description": ""
+								},
+								{
+									"name": "server",
+									"key": "server",
+									"value": "nginx",
+									"description": ""
+								},
+								{
+									"name": "transfer-encoding",
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"description": ""
+								},
+								{
+									"name": "x-application-context",
+									"key": "x-application-context",
+									"value": "iaes-web:prod:8080",
+									"description": ""
+								},
+								{
+									"name": "x-content-type-options",
+									"key": "x-content-type-options",
+									"value": "nosniff",
+									"description": ""
+								},
+								{
+									"name": "x-frame-options",
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN",
+									"description": ""
+								},
+								{
+									"name": "x-result-count",
+									"key": "x-result-count",
+									"value": "100",
+									"description": ""
+								},
+								{
+									"name": "x-xss-protection",
+									"key": "x-xss-protection",
+									"value": "1; mode=block",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[ {\n  \"id\" : \"5a16a9507676a7304f6393a4\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-23T10:56:16.131Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 43,\n    \"revmin\" : 5216,\n    \"temperature\" : 118\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-23T10:56:16.133Z\"\n}, {\n  \"id\" : \"5a16a94bc74a4951f54f23c5\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-23T10:56:11.131Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 100,\n    \"revmin\" : 8624,\n    \"temperature\" : -7\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-23T10:56:11.131Z\"\n}, {\n  \"id\" : \"5a16a946c74a4951f54f2391\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-23T10:56:06.121Z\",\n  \"location\" : {\n    \"lat\" : 45.76739,\n    \"lon\" : 4.83605\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 44,\n    \"revmin\" : 8925,\n    \"temperature\" : 61\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-23T10:56:06.122Z\"\n}, {\n  \"id\" : \"5a16a9417676a7304f6392f1\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-23T10:56:01.113Z\",\n  \"location\" : {\n    \"lat\" : 45.76734,\n    \"lon\" : 4.83605\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 27,\n    \"revmin\" : 7513,\n    \"temperature\" : 92\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-23T10:56:01.114Z\"\n}, {\n  \"id\" : \"5a15caa7c74a4951f542e1a5\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:06:15.411Z\",\n  \"location\" : {\n    \"lat\" : 45.7642,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 49,\n    \"revmin\" : 3996,\n    \"temperature\" : 35\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:06:15.412Z\"\n}, {\n  \"id\" : \"5a15caa2c74a4951f542e17a\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:06:10.409Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 27,\n    \"revmin\" : 268,\n    \"temperature\" : -5\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:06:10.411Z\"\n}, {\n  \"id\" : \"5a15ca9dc74a4951f542e143\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:06:05.406Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 77,\n    \"revmin\" : 7908,\n    \"temperature\" : -17\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:06:05.408Z\"\n}, {\n  \"id\" : \"5a15ca987676a7304f5750f0\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:06:00.415Z\",\n  \"location\" : {\n    \"lat\" : 45.76356,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 86,\n    \"revmin\" : 5702,\n    \"temperature\" : -18\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:06:00.418Z\"\n}, {\n  \"id\" : \"5a15ca937676a7304f5750b2\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:55.406Z\",\n  \"location\" : {\n    \"lat\" : 45.76349,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 95,\n    \"revmin\" : 2994,\n    \"temperature\" : 114\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:55.408Z\"\n}, {\n  \"id\" : \"5a15ca8e7676a7304f575075\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:50.431Z\",\n  \"location\" : {\n    \"lat\" : 45.76327,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 98,\n    \"revmin\" : 5261,\n    \"temperature\" : 86\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:50.433Z\"\n}, {\n  \"id\" : \"5a15ca89c74a4951f542e06b\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:45.433Z\",\n  \"location\" : {\n    \"lat\" : 45.76302,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 30,\n    \"revmin\" : 8137,\n    \"temperature\" : 20\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:45.436Z\"\n}, {\n  \"id\" : \"5a15ca84c74a4951f542e03d\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:40.447Z\",\n  \"location\" : {\n    \"lat\" : 45.76295,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 36,\n    \"revmin\" : 234,\n    \"temperature\" : 79\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:40.448Z\"\n}, {\n  \"id\" : \"5a15ca7fc74a4951f542e002\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:35.412Z\",\n  \"location\" : {\n    \"lat\" : 45.76287,\n    \"lon\" : 4.83818\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 79,\n    \"revmin\" : 3056,\n    \"temperature\" : 110\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:35.413Z\"\n}, {\n  \"id\" : \"5a15ca7a7676a7304f574faa\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:30.401Z\",\n  \"location\" : {\n    \"lat\" : 45.76266,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 61,\n    \"revmin\" : 6620,\n    \"temperature\" : 61\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:30.404Z\"\n}, {\n  \"id\" : \"5a15ca75c74a4951f542dfa2\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:25.426Z\",\n  \"location\" : {\n    \"lat\" : 45.76208,\n    \"lon\" : 4.83809\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 25,\n    \"revmin\" : 6842,\n    \"temperature\" : 115\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:25.427Z\"\n}, {\n  \"id\" : \"5a15ca70c74a4951f542df71\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:20.401Z\",\n  \"location\" : {\n    \"lat\" : 45.76163,\n    \"lon\" : 4.83803\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 60,\n    \"revmin\" : 2512,\n    \"temperature\" : 56\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:20.403Z\"\n}, {\n  \"id\" : \"5a15ca6bc74a4951f542df3e\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:15.420Z\",\n  \"location\" : {\n    \"lat\" : 45.76153,\n    \"lon\" : 4.83801\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 26,\n    \"revmin\" : 5131,\n    \"temperature\" : 30\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:15.422Z\"\n}, {\n  \"id\" : \"5a15ca667676a7304f574ed8\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:10.406Z\",\n  \"location\" : {\n    \"lat\" : 45.76099,\n    \"lon\" : 4.8379\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 9,\n    \"revmin\" : 5789,\n    \"temperature\" : 69\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:10.410Z\"\n}, {\n  \"id\" : \"5a15ca627676a7304f574ead\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:06.572Z\",\n  \"location\" : {\n    \"lat\" : 45.76059,\n    \"lon\" : 4.83782\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 79,\n    \"revmin\" : 9057,\n    \"temperature\" : -1\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:06.692Z\"\n}, {\n  \"id\" : \"5a15ca5cc74a4951f542de83\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:05:00.605Z\",\n  \"location\" : {\n    \"lat\" : 45.76038,\n    \"lon\" : 4.83779\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 63,\n    \"revmin\" : 4783,\n    \"temperature\" : 119\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:05:00.606Z\"\n}, {\n  \"id\" : \"5a15ca577676a7304f574e27\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:55.400Z\",\n  \"location\" : {\n    \"lat\" : 45.76017,\n    \"lon\" : 4.83776\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 31,\n    \"revmin\" : 9319,\n    \"temperature\" : 59\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:55.402Z\"\n}, {\n  \"id\" : \"5a15ca52c74a4951f542de08\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:50.437Z\",\n  \"location\" : {\n    \"lat\" : 45.76,\n    \"lon\" : 4.83773\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 53,\n    \"revmin\" : 7110,\n    \"temperature\" : 99\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:50.439Z\"\n}, {\n  \"id\" : \"5a15ca4dc74a4951f542ddd1\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:45.395Z\",\n  \"location\" : {\n    \"lat\" : 45.75932,\n    \"lon\" : 4.83755\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 90,\n    \"revmin\" : 5198,\n    \"temperature\" : 14\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:45.397Z\"\n}, {\n  \"id\" : \"5a15ca487676a7304f574d89\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:40.392Z\",\n  \"location\" : {\n    \"lat\" : 45.75913,\n    \"lon\" : 4.83749\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 81,\n    \"revmin\" : 3449,\n    \"temperature\" : 92\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:40.394Z\"\n}, {\n  \"id\" : \"5a15ca437676a7304f574d5e\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:35.874Z\",\n  \"location\" : {\n    \"lat\" : 45.75913,\n    \"lon\" : 4.83749\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 86,\n    \"revmin\" : 1321,\n    \"temperature\" : 56\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:35.878Z\"\n}, {\n  \"id\" : \"5a15ca3ec74a4951f542dd3e\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:30.407Z\",\n  \"location\" : {\n    \"lat\" : 45.75886,\n    \"lon\" : 4.83731\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 89,\n    \"revmin\" : 7015,\n    \"temperature\" : 45\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:30.409Z\"\n}, {\n  \"id\" : \"5a15ca397676a7304f574ced\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:25.411Z\",\n  \"location\" : {\n    \"lat\" : 45.75842,\n    \"lon\" : 4.8371\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 35,\n    \"revmin\" : 1841,\n    \"temperature\" : 3\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:25.412Z\"\n}, {\n  \"id\" : \"5a15ca357676a7304f574cb4\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:21.427Z\",\n  \"location\" : {\n    \"lat\" : 45.75802,\n    \"lon\" : 4.83689\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 72,\n    \"revmin\" : 1818,\n    \"temperature\" : 118\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:21.524Z\"\n}, {\n  \"id\" : \"5a15ca2f7676a7304f574c59\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:15.413Z\",\n  \"location\" : {\n    \"lat\" : 45.75761,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 61,\n    \"revmin\" : 4798,\n    \"temperature\" : 5\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:15.416Z\"\n}, {\n  \"id\" : \"5a15ca2ac74a4951f542dc50\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:10.410Z\",\n  \"location\" : {\n    \"lat\" : 45.75761,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 10,\n    \"revmin\" : 1658,\n    \"temperature\" : 71\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:10.432Z\"\n}, {\n  \"id\" : \"5a15ca257676a7304f574bfe\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:05.647Z\",\n  \"location\" : {\n    \"lat\" : 45.75757,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 33,\n    \"revmin\" : 9676,\n    \"temperature\" : 75\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:05.650Z\"\n}, {\n  \"id\" : \"5a15ca20c74a4951f542dbd1\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:04:00.407Z\",\n  \"location\" : {\n    \"lat\" : 45.75733,\n    \"lon\" : 4.83659\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 78,\n    \"revmin\" : 5241,\n    \"temperature\" : 108\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:04:00.409Z\"\n}, {\n  \"id\" : \"5a15ca1b7676a7304f574b87\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:55.411Z\",\n  \"location\" : {\n    \"lat\" : 45.75733,\n    \"lon\" : 4.83659\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 26,\n    \"revmin\" : 801,\n    \"temperature\" : 36\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:55.412Z\"\n}, {\n  \"id\" : \"5a15ca187676a7304f574b5f\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:51.854Z\",\n  \"location\" : {\n    \"lat\" : 45.75734,\n    \"lon\" : 4.83654\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 26,\n    \"revmin\" : 7684,\n    \"temperature\" : 7\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:52.364Z\"\n}, {\n  \"id\" : \"5a15ca117676a7304f574b05\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:45.412Z\",\n  \"location\" : {\n    \"lat\" : 45.75735,\n    \"lon\" : 4.83648\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 43,\n    \"revmin\" : 4928,\n    \"temperature\" : 63\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:45.414Z\"\n}, {\n  \"id\" : \"5a15ca0cc74a4951f542daef\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:40.417Z\",\n  \"location\" : {\n    \"lat\" : 45.75729,\n    \"lon\" : 4.83644\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 49,\n    \"revmin\" : 428,\n    \"temperature\" : -8\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:40.419Z\"\n}, {\n  \"id\" : \"5a15ca077676a7304f574a8b\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:35.433Z\",\n  \"location\" : {\n    \"lat\" : 45.75726,\n    \"lon\" : 4.83655\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 11,\n    \"revmin\" : 4650,\n    \"temperature\" : 53\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:35.435Z\"\n}, {\n  \"id\" : \"5a15ca02c74a4951f542da70\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:03:30.411Z\",\n  \"location\" : {\n    \"lat\" : 45.75724,\n    \"lon\" : 4.83664\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 87,\n    \"revmin\" : 656,\n    \"temperature\" : 92\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:03:30.413Z\"\n}, {\n  \"id\" : \"5a15c9707676a7304f57433d\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:01:04.260Z\",\n  \"location\" : {\n    \"lat\" : 45.75717,\n    \"lon\" : 4.83687\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 97,\n    \"revmin\" : 9356,\n    \"temperature\" : 52\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:01:04.262Z\"\n}, {\n  \"id\" : \"5a15c969c74a4951f542d307\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:57.981Z\",\n  \"location\" : {\n    \"lat\" : 45.7572,\n    \"lon\" : 4.83675\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 39,\n    \"revmin\" : 7358,\n    \"temperature\" : -11\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:57.984Z\"\n}, {\n  \"id\" : \"5a15c9657676a7304f5742c8\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:53.333Z\",\n  \"location\" : {\n    \"lat\" : 45.75724,\n    \"lon\" : 4.83664\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 53,\n    \"revmin\" : 7329,\n    \"temperature\" : 72\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:53.334Z\"\n}, {\n  \"id\" : \"5a15c95fc74a4951f542d2a9\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:47.978Z\",\n  \"location\" : {\n    \"lat\" : 45.75726,\n    \"lon\" : 4.83655\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 63,\n    \"revmin\" : 9691,\n    \"temperature\" : 24\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:47.980Z\"\n}, {\n  \"id\" : \"5a15c95b7676a7304f574252\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:43.008Z\",\n  \"location\" : {\n    \"lat\" : 45.75729,\n    \"lon\" : 4.83644\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 38,\n    \"revmin\" : 7620,\n    \"temperature\" : 73\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:43.010Z\"\n}, {\n  \"id\" : \"5a15c9597676a7304f574237\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:41.051Z\",\n  \"location\" : {\n    \"lat\" : 45.75735,\n    \"lon\" : 4.83648\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 93,\n    \"revmin\" : 3036,\n    \"temperature\" : 37\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:41.054Z\"\n}, {\n  \"id\" : \"5a15c9597676a7304f574236\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:41.051Z\",\n  \"location\" : {\n    \"lat\" : 45.75734,\n    \"lon\" : 4.83654\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 41,\n    \"revmin\" : 5401,\n    \"temperature\" : 28\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:41.053Z\"\n}, {\n  \"id\" : \"5a15c94bc74a4951f542d1b9\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:27.984Z\",\n  \"location\" : {\n    \"lat\" : 45.75733,\n    \"lon\" : 4.83659\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 30,\n    \"revmin\" : 8572,\n    \"temperature\" : 106\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:27.985Z\"\n}, {\n  \"id\" : \"5a15c947c74a4951f542d184\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:23.007Z\",\n  \"location\" : {\n    \"lat\" : 45.75733,\n    \"lon\" : 4.83659\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 97,\n    \"revmin\" : 1601,\n    \"temperature\" : 53\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:23.009Z\"\n}, {\n  \"id\" : \"5a15c943c74a4951f542d14f\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:19.816Z\",\n  \"location\" : {\n    \"lat\" : 45.75757,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 93,\n    \"revmin\" : 4622,\n    \"temperature\" : 73\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:19.817Z\"\n}, {\n  \"id\" : \"5a15c93d7676a7304f5740dd\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:13.882Z\",\n  \"location\" : {\n    \"lat\" : 45.75761,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 25,\n    \"revmin\" : 7918,\n    \"temperature\" : 2\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:13.885Z\"\n}, {\n  \"id\" : \"5a15c937c74a4951f542d0af\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:07.968Z\",\n  \"location\" : {\n    \"lat\" : 45.75761,\n    \"lon\" : 4.83668\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 19,\n    \"revmin\" : 3291,\n    \"temperature\" : 31\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:07.995Z\"\n}, {\n  \"id\" : \"5a15c9337676a7304f57405a\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T19:00:02.998Z\",\n  \"location\" : {\n    \"lat\" : 45.75802,\n    \"lon\" : 4.83689\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 81,\n    \"revmin\" : 7955,\n    \"temperature\" : 82\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T19:00:03.001Z\"\n}, {\n  \"id\" : \"5a15c92dc74a4951f542d030\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:57.991Z\",\n  \"location\" : {\n    \"lat\" : 45.75842,\n    \"lon\" : 4.8371\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 69,\n    \"revmin\" : 412,\n    \"temperature\" : 71\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:57.994Z\"\n}, {\n  \"id\" : \"5a15c929c74a4951f542cffb\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:53.050Z\",\n  \"location\" : {\n    \"lat\" : 45.75886,\n    \"lon\" : 4.83731\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 59,\n    \"revmin\" : 7011,\n    \"temperature\" : 24\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:53.053Z\"\n}, {\n  \"id\" : \"5a15c9247676a7304f573f99\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:47.998Z\",\n  \"location\" : {\n    \"lat\" : 45.75913,\n    \"lon\" : 4.83749\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 84,\n    \"revmin\" : 8859,\n    \"temperature\" : 72\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:48Z\"\n}, {\n  \"id\" : \"5a15c91e7676a7304f573f5b\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:42.981Z\",\n  \"location\" : {\n    \"lat\" : 45.75913,\n    \"lon\" : 4.83749\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 34,\n    \"revmin\" : 7456,\n    \"temperature\" : -12\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:42.983Z\"\n}, {\n  \"id\" : \"5a15c91a7676a7304f573f1c\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:38.084Z\",\n  \"location\" : {\n    \"lat\" : 45.75932,\n    \"lon\" : 4.83755\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 56,\n    \"revmin\" : 7379,\n    \"temperature\" : 108\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:38.086Z\"\n}, {\n  \"id\" : \"5a15c914c74a4951f542cf11\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:32.982Z\",\n  \"location\" : {\n    \"lat\" : 45.76,\n    \"lon\" : 4.83773\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 23,\n    \"revmin\" : 2984,\n    \"temperature\" : 104\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:32.985Z\"\n}, {\n  \"id\" : \"5a15c90f7676a7304f573ebc\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:27.990Z\",\n  \"location\" : {\n    \"lat\" : 45.76017,\n    \"lon\" : 4.83776\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 27,\n    \"revmin\" : 7543,\n    \"temperature\" : 46\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:27.991Z\"\n}, {\n  \"id\" : \"5a15c90b7676a7304f573e83\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:59:23.528Z\",\n  \"location\" : {\n    \"lat\" : 45.76038,\n    \"lon\" : 4.83779\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 83,\n    \"revmin\" : 9756,\n    \"temperature\" : 104\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:59:23.530Z\"\n}, {\n  \"id\" : \"5a15c8df7676a7304f573c94\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:39.858Z\",\n  \"location\" : {\n    \"lat\" : 45.76295,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 79,\n    \"revmin\" : 8947,\n    \"temperature\" : 103\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:39.859Z\"\n}, {\n  \"id\" : \"5a15c8da7676a7304f573c66\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:34.884Z\",\n  \"location\" : {\n    \"lat\" : 45.76302,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 74,\n    \"revmin\" : 7635,\n    \"temperature\" : 79\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:34.887Z\"\n}, {\n  \"id\" : \"5a15c8d87676a7304f573c56\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:32.953Z\",\n  \"location\" : {\n    \"lat\" : 45.76327,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 76,\n    \"revmin\" : 2820,\n    \"temperature\" : -20\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:32.956Z\"\n}, {\n  \"id\" : \"5a15c8d87676a7304f573c55\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:32.953Z\",\n  \"location\" : {\n    \"lat\" : 45.76349,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 35,\n    \"revmin\" : 5053,\n    \"temperature\" : 76\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:32.955Z\"\n}, {\n  \"id\" : \"5a15c8cc7676a7304f573be3\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:20.201Z\",\n  \"location\" : {\n    \"lat\" : 45.76356,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 86,\n    \"revmin\" : 6290,\n    \"temperature\" : 31\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:20.202Z\"\n}, {\n  \"id\" : \"5a15c8c6c74a4951f542cbb1\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:14.921Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 11,\n    \"revmin\" : 4716,\n    \"temperature\" : 70\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:14.964Z\"\n}, {\n  \"id\" : \"5a15c8c17676a7304f573b62\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:09.867Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 14,\n    \"revmin\" : 4371,\n    \"temperature\" : 4\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:09.869Z\"\n}, {\n  \"id\" : \"5a15c8bcc74a4951f542cb4c\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:58:04.864Z\",\n  \"location\" : {\n    \"lat\" : 45.7642,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 42,\n    \"revmin\" : 7168,\n    \"temperature\" : -3\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:58:04.865Z\"\n}, {\n  \"id\" : \"5a15c8b7c74a4951f542cb1e\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:59.868Z\",\n  \"location\" : {\n    \"lat\" : 45.76502,\n    \"lon\" : 4.83813\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 30,\n    \"revmin\" : 6023,\n    \"temperature\" : 107\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:59.869Z\"\n}, {\n  \"id\" : \"5a15c8b4c74a4951f542caf3\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:56.686Z\",\n  \"location\" : {\n    \"lat\" : 45.76542,\n    \"lon\" : 4.8381\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 23,\n    \"revmin\" : 2541,\n    \"temperature\" : 19\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:56.688Z\"\n}, {\n  \"id\" : \"5a15c8aec74a4951f542caac\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:50.855Z\",\n  \"location\" : {\n    \"lat\" : 45.76617,\n    \"lon\" : 4.83808\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 86,\n    \"revmin\" : 8758,\n    \"temperature\" : 9\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:50.861Z\"\n}, {\n  \"id\" : \"5a15c8a8c74a4951f542ca54\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:44.864Z\",\n  \"location\" : {\n    \"lat\" : 45.76676,\n    \"lon\" : 4.83801\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 22,\n    \"revmin\" : 2670,\n    \"temperature\" : 111\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:44.865Z\"\n}, {\n  \"id\" : \"5a15c8a37676a7304f5739fc\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:39.866Z\",\n  \"location\" : {\n    \"lat\" : 45.76777,\n    \"lon\" : 4.83791\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 82,\n    \"revmin\" : 2565,\n    \"temperature\" : 64\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:39.871Z\"\n}, {\n  \"id\" : \"5a15c89e7676a7304f5739c5\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:34.919Z\",\n  \"location\" : {\n    \"lat\" : 45.76777,\n    \"lon\" : 4.83791\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 38,\n    \"revmin\" : 4544,\n    \"temperature\" : 93\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:34.921Z\"\n}, {\n  \"id\" : \"5a15c899c74a4951f542c9a6\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:29.865Z\",\n  \"location\" : {\n    \"lat\" : 45.76765,\n    \"lon\" : 4.83705\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 96,\n    \"revmin\" : 9241,\n    \"temperature\" : 21\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:29.866Z\"\n}, {\n  \"id\" : \"5a15c895c74a4951f542c979\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:25.027Z\",\n  \"location\" : {\n    \"lat\" : 45.76759,\n    \"lon\" : 4.83661\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 58,\n    \"revmin\" : 70,\n    \"temperature\" : 73\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:25.042Z\"\n}, {\n  \"id\" : \"5a15c88f7676a7304f573920\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:19.852Z\",\n  \"location\" : {\n    \"lat\" : 45.76756,\n    \"lon\" : 4.83636\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 76,\n    \"revmin\" : 7210,\n    \"temperature\" : 62\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:19.855Z\"\n}, {\n  \"id\" : \"5a15c88ac74a4951f542c90b\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:57:14.948Z\",\n  \"location\" : {\n    \"lat\" : 45.76754,\n    \"lon\" : 4.83627\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 63,\n    \"revmin\" : 4739,\n    \"temperature\" : 119\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:57:14.951Z\"\n}, {\n  \"id\" : \"5a15c62fc74a4951f5428eec\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:47:11.623Z\",\n  \"location\" : {\n    \"lat\" : 45.76751,\n    \"lon\" : 4.83617\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 39,\n    \"revmin\" : 37,\n    \"temperature\" : 29\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:47:11.931Z\"\n}, {\n  \"id\" : \"5a15c62a7676a7304f56fe91\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:47:06.619Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 17,\n    \"revmin\" : 4902,\n    \"temperature\" : -9\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:47:06.621Z\"\n}, {\n  \"id\" : \"5a15c6267676a7304f56fe69\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:47:02.937Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 65,\n    \"revmin\" : 3942,\n    \"temperature\" : -10\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:47:02.939Z\"\n}, {\n  \"id\" : \"5a15c6207676a7304f56fe32\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:46:56.611Z\",\n  \"location\" : {\n    \"lat\" : 45.76739,\n    \"lon\" : 4.83605\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 15,\n    \"revmin\" : 8506,\n    \"temperature\" : 78\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:46:56.612Z\"\n}, {\n  \"id\" : \"5a15c61b7676a7304f56fe07\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T18:46:51.758Z\",\n  \"location\" : {\n    \"lat\" : 45.76734,\n    \"lon\" : 4.83605\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 41,\n    \"revmin\" : 3791,\n    \"temperature\" : 64\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T18:46:51.760Z\"\n}, {\n  \"id\" : \"5a15ae4c7676a7304f55ae77\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:05:16.895Z\",\n  \"location\" : {\n    \"lat\" : 45.76349,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 76,\n    \"revmin\" : 5265,\n    \"temperature\" : -1\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:05:16.897Z\"\n}, {\n  \"id\" : \"5a15ae47c74a4951f5413e60\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:05:11.035Z\",\n  \"location\" : {\n    \"lat\" : 45.76356,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 13,\n    \"revmin\" : 9580,\n    \"temperature\" : 66\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:05:11.037Z\"\n}, {\n  \"id\" : \"5a15ae427676a7304f55ae19\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:05:06.037Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 36,\n    \"revmin\" : 8178,\n    \"temperature\" : 117\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:05:06.039Z\"\n}, {\n  \"id\" : \"5a15ad80c74a4951f5413589\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:01:52.859Z\",\n  \"location\" : {\n    \"lat\" : 45.76362,\n    \"lon\" : 4.83816\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 64,\n    \"revmin\" : 2062,\n    \"temperature\" : 28\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:01:52.861Z\"\n}, {\n  \"id\" : \"5a15ad7bc74a4951f541353c\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:01:47.968Z\",\n  \"location\" : {\n    \"lat\" : 45.7642,\n    \"lon\" : 4.83817\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 70,\n    \"revmin\" : 2888,\n    \"temperature\" : 40\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:01:47.971Z\"\n}, {\n  \"id\" : \"5a15ad5fc74a4951f541341b\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:01:19.805Z\",\n  \"location\" : {\n    \"lat\" : 45.76502,\n    \"lon\" : 4.83813\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 8,\n    \"revmin\" : 3980,\n    \"temperature\" : 45\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:01:19.807Z\"\n}, {\n  \"id\" : \"5a15ad5ac74a4951f54133e3\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T17:01:14.803Z\",\n  \"location\" : {\n    \"lat\" : 45.76542,\n    \"lon\" : 4.8381\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 3,\n    \"revmin\" : 4600,\n    \"temperature\" : 12\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T17:01:14.805Z\"\n}, {\n  \"id\" : \"5a15ace17676a7304f559e2f\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:59:13.734Z\",\n  \"location\" : {\n    \"lat\" : 45.76617,\n    \"lon\" : 4.83808\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 54,\n    \"revmin\" : 7774,\n    \"temperature\" : 108\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:59:13.736Z\"\n}, {\n  \"id\" : \"5a15acdcc74a4951f5412e1d\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:59:08.719Z\",\n  \"location\" : {\n    \"lat\" : 45.76676,\n    \"lon\" : 4.83801\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 46,\n    \"revmin\" : 6661,\n    \"temperature\" : -12\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:59:08.721Z\"\n}, {\n  \"id\" : \"5a15acd7c74a4951f5412deb\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:59:03.941Z\",\n  \"location\" : {\n    \"lat\" : 45.76777,\n    \"lon\" : 4.83791\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 73,\n    \"revmin\" : 9241,\n    \"temperature\" : -9\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:59:03.972Z\"\n}, {\n  \"id\" : \"5a15ac9d7676a7304f559b65\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:58:05.065Z\",\n  \"location\" : {\n    \"lat\" : 45.76777,\n    \"lon\" : 4.83791\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 51,\n    \"revmin\" : 1251,\n    \"temperature\" : 20\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:58:05.068Z\"\n}, {\n  \"id\" : \"5a15ac98c74a4951f5412b5d\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:58:00.051Z\",\n  \"location\" : {\n    \"lat\" : 45.76765,\n    \"lon\" : 4.83705\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 49,\n    \"revmin\" : 3665,\n    \"temperature\" : -12\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:58:00.053Z\"\n}, {\n  \"id\" : \"5a15ac93c74a4951f5412b32\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:57:55.144Z\",\n  \"location\" : {\n    \"lat\" : 45.76759,\n    \"lon\" : 4.83661\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 88,\n    \"revmin\" : 590,\n    \"temperature\" : 34\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:57:55.146Z\"\n}, {\n  \"id\" : \"5a15aba7c74a4951f54120e8\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:53:59.797Z\",\n  \"location\" : {\n    \"lat\" : 45.76756,\n    \"lon\" : 4.83636\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 67,\n    \"revmin\" : 5983,\n    \"temperature\" : 57\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:53:59.801Z\"\n}, {\n  \"id\" : \"5a15ab7dc74a4951f5411eed\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:53:17.162Z\",\n  \"location\" : {\n    \"lat\" : 45.76754,\n    \"lon\" : 4.83627\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 96,\n    \"revmin\" : 2686,\n    \"temperature\" : 8\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:53:17.165Z\"\n}, {\n  \"id\" : \"5a15ab78c74a4951f5411eb1\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:53:12.189Z\",\n  \"location\" : {\n    \"lat\" : 45.76751,\n    \"lon\" : 4.83617\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 19,\n    \"revmin\" : 319,\n    \"temperature\" : 83\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:53:12.192Z\"\n}, {\n  \"id\" : \"5a15ab747676a7304f558e65\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:53:08.531Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 25,\n    \"revmin\" : 4273,\n    \"temperature\" : -12\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:53:08.533Z\"\n}, {\n  \"id\" : \"5a15ab6ec74a4951f5411e2f\",\n  \"streamId\" : \"android357329073120059\",\n  \"timestamp\" : \"2017-11-22T16:53:02.138Z\",\n  \"location\" : {\n    \"lat\" : 45.76748,\n    \"lon\" : 4.83604\n  },\n  \"model\" : \"demo\",\n  \"value\" : {\n    \"hygrometry\" : 78,\n    \"revmin\" : 2377,\n    \"temperature\" : 83\n  },\n  \"metadata\" : {\n    \"source\" : \"urn:lo:nsid:android:357329073120059\",\n    \"connector\" : \"mqtt\"\n  },\n  \"created\" : \"2017-11-22T16:53:02.140Z\"\n} ]"
+						}
+					]
+				},
+				{
 					"name": "Search service - simple request, ordered, stats",
 					"request": {
 						"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -213,7 +402,7 @@
 					},
 					"response": [
 						{
-							"id": "573d1353-b080-44f0-a454-8af1b9f15048",
+							"id": "67beb36b-a116-464b-ada8-ab6dff442075",
 							"name": "OAB App - fra.lelong - Temp > 100 ordered",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -355,7 +544,7 @@
 					},
 					"response": [
 						{
-							"id": "4bab0874-dd0b-49e6-94d9-73f875331ab8",
+							"id": "b8cb47d3-4bd9-445f-bc41-510e0e74d827",
 							"name": "OAB App - ELS - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -497,7 +686,7 @@
 					},
 					"response": [
 						{
-							"id": "a56364ca-b3f5-448a-beb7-70c6feca9377",
+							"id": "9cd3ff7c-02d6-4949-b73a-93dbcc68fa28",
 							"name": "Simul OAB App - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -639,7 +828,7 @@
 					},
 					"response": [
 						{
-							"id": "2a7ccc21-1615-4eaa-89a4-5e18e75a252f",
+							"id": "8ff6234d-bde8-45e1-b7b7-482c9182b4b2",
 							"name": "StreamPushAirParif - multirange",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -1059,80 +1248,6 @@
 								"description": "Removing the firing guard enable the event to trigger \"ONCE\" more\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
-						},
-						{
-							"name": "Remove a FiringGuard from its id",
-							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-guard/b87900ce-16f8-4b37-a723-78d23635ab10-9403139ba9a13557e0e32ee7e47b1489",
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									}
-								],
-								"body": {},
-								"description": "Removing the firing guard enable the event to trigger \"ONCE\" more\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
-							},
-							"response": []
-						},
-						{
-							"name": "Get FiringGuards linked to a FiringRule, and where FiringGuards selection criteria match.",
-							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-guard/search",
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"firingRuleId\": \"b87900ce-16f8-4b37-a723-78d23635ab10\",\r\n  \"selectionCriteria\":[\r\n  {\r\n    \"keyPath\":\"data.streamId\",\r\n    \"value\":\"android357329073120059\"\r\n  }\r\n  ]\r\n\r\n}"
-								},
-								"description": "Get the list of Firing guards of the Firing rule \"b87900ce-16f8-4b37-a723-78d23635ab10\", filtered with the streamId android357329073120059\"\n\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
-							},
-							"response": []
-						},
-						{
-							"name": "Update a FiringRule to \"ONCE\"",
-							"request": {
-								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10",
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"aggregationKeys\": [\r\n  \"metadata.source\"\r\n  ],\r\n  \"enabled\": true,\r\n  \"firingType\": \"ONCE\",\r\n  \"id\": \"b87900ce-16f8-4b37-a723-78d23635ab10\",\r\n  \"matchingRuleIds\": [\r\n    \"31826629-94a5-410c-ad6d-4c201ce47330\"\r\n  ],\r\n  \"name\": \"Test hygro < 80 && temp > 20\"\r\n}"
-								},
-								"description": "Here we set the Firing rule's firing type to \"ONCE\" and we enable it.\n\nPut the firing rule Id into the request, here its Id is \"b87900ce-16f8-4b37-a723-78d23635ab10\" : https://liveobjects.orange-business.com/api/v0/eventprocessing/firing-rule/b87900ce-16f8-4b37-a723-78d23635ab10"
-							},
-							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
@@ -1444,6 +1559,100 @@
 									"raw": "{\r\n    \"name\": \"Test EventToAction app Android updated\",\r\n    \"enabled\": true,\r\n    \"triggers\": {\r\n        \"eventRuleIds\": [\"b87900ce-16f8-4b37-a723-78d23635ab10\"]\r\n    },\r\n    \"actions\": {\r\n        \"emails\": [{\"cc\": [], \"cci\": [], \"to\": [\"xx.yy@orange.fr\", \"zz.tt@orange.fr\"],\r\n        \"subjectTemplate\": \"Hygro < 80 && Temp > 20\",\r\n        \"contentTemplate\": \"Threshold exceeded. <br/> - Temperature: {{matchingContext.data.value.temperature}} <br/> - Hygrometry: {{matchingContext.data.value.hygrometry}} <br/> <br/> - GPS Location: {{matchingContext.data.location}} <br/> <img width=\\\"300\\\" src=\\\"https://maps.googleapis.com/maps/api/staticmap?center={{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}}&zoom=15&size=300x300&markers=color:red%7Clabel:A%7C{{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}}\\\"> <br/> <p> https://www.google.fr/maps/@{{matchingContext.data.location.lat}},{{matchingContext.data.location.lon}},13z </p>\" \r\n        }],\r\n       \"sms\": [{\r\n            \"destinationPhoneNumbers\": [\"+33612345678\"],\r\n            \"contentTemplate\": \"Seuil dépassé Hygro < 80 && Temp > 20\"\r\n        }]  \r\n    }\r\n}"
 								},
 								"description": "Update the action policy by adding into the the mail body a google map related to the device location.<br>\n\nIt is possible to temporary disable the policy by setting \"enable\" to false<br>\n\nPut the action Id into the request, here its Id is \"f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\" : https://liveobjects.orange-business.com/api/v0/event2action/actionPolicies/f3a1f839-31fc-4f80-a7d2-f13f0ae7041a\n\n<br>Restricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Activity Rules",
+					"description": "This collection describes the management of the device activity. This feature allows you to detect \"silent devices\" : it will trigger on the router/~event/v1/data/eventprocessing/device-activity topic the following events : \n- \"SILENT\" if a device does not send data during a defined period \n- \"ACTIVE\" when the device talk again\n",
+					"item": [
+						{
+							"name": "Create a new ActivityRule for silent devices",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/activity/rules",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"enabled\": true,\n  \"name\": \"android357329073120059PRIMARY\",\n  \"silentPolicy\": {\n    \"duration\": \"PT1M\",\n    \"repeatInterval\": \"P1DT12H\"\n  },\n  \"tags\": [\n    \"tagTestActivity\"\n  ],\n  \"targets\": {\n    \"deviceIds\": [\n      \"urn:lo:nsid:android:357329073120059PRIMARY\"\n    ],\n    \"groupPaths\": [\n      {\n        \"includeSubPath\": true,\n        \"path\": \"/France\"\n      }\n    ]\n  }\n}"
+								},
+								"description": "Trigger an event if the following devices :\n- urn:lo:nsid:android:357329073120059PRIMARY\n- all the devices into the /France group and under it\ndon't send during 1 mn.\nRepeat this event every 1,5 day.\nThis event will be triggered on the topic : ~event.v1.data.eventprocessing.device-activity.# \n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve the list of all the ActivityRules",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/activity/rules",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": "Restricted to API keys with at least one of the following roles : DATA_PROCESSING_R."
+							},
+							"response": []
+						},
+						{
+							"name": "Update an ActivityRule",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v0/eventprocessing/activity/rules/3aeff407-82f0-455c-8baf-38e448d85212",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"3aeff407-82f0-455c-8baf-38e448d85212\",\n    \"name\": \"android357329073120059PRIMARY\",\n    \"targets\": {\n        \"deviceIds\": [\n            \"urn:lo:nsid:android:357329073120059PRIMARY\"\n        ],\n        \"groupPaths\": [\n            {\n                \"path\": \"/France\",\n                \"includeSubPath\": true\n            }\n        ]\n    },\n    \"silentPolicy\": {\n        \"duration\": \"PT1M\",\n        \"repeatInterval\": \"PT10M\"\n    },\n    \"tags\": [\n        \"tagTestActivity\"\n    ],\n    \"enabled\": false\n}"
+								},
+								"description": "Change the parameters of the triggering rule. \nHere we will change the repeat period to 10mn and set it to disable.\n\nRestricted to API keys with at least one of the following roles : DATA_PROCESSING_W."
 							},
 							"response": []
 						}
