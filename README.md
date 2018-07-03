@@ -19,14 +19,15 @@ The collections contained in this repository are organized under this scheme:
 <p>The collections contained in this repository are organized under this scheme:</p>
 <ul>
 <li><a href="#LO-training-api">Live Objets training APIs</a>
-<ul>
-<li>HTTP push</li>
-<li>Push Data from LoRa devices API</li>
-<li>Rule Engine API</li>
-<li>Device Management API</li>
-<li>Debug mode API</li>
-<li>Requests on Datazone API</li>
-</ul>
+
+* HTTP push
+* Push Data from LoRa devices API
+* Rule Engine API
+* Device Management API
+* Debug mode API
+* Requests on Datazone API
+* Silent devices
+
 </li>
 <li><a href="#LO-event-processing-example1">Live Objets Event Processing Examples 1</a>
 <ul>
