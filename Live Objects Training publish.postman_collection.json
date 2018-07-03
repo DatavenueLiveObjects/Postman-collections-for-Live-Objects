@@ -52,7 +52,7 @@
 					},
 					"response": [
 						{
-							"id": "aad72acf-9a53-444b-a0eb-f87905b9f3da",
+							"id": "7a2fa393-b388-4b57-b6c6-80f730d4a90e",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
 								"url": {
@@ -239,7 +239,7 @@
 					},
 					"response": [
 						{
-							"id": "89a38a1f-e639-4ea5-a7a6-93720c37bc23",
+							"id": "fa5916bc-1153-4d82-b1c7-2b137d0927c7",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
 								"url": {
@@ -402,7 +402,7 @@
 					},
 					"response": [
 						{
-							"id": "67beb36b-a116-464b-ada8-ab6dff442075",
+							"id": "eb800ca6-2050-45f7-9501-261e13b8ce8d",
 							"name": "OAB App - fra.lelong - Temp > 100 ordered",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -544,7 +544,7 @@
 					},
 					"response": [
 						{
-							"id": "b8cb47d3-4bd9-445f-bc41-510e0e74d827",
+							"id": "ba92b959-1fc4-48af-9b55-247cd1c985df",
 							"name": "OAB App - ELS - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -686,7 +686,7 @@
 					},
 					"response": [
 						{
-							"id": "9cd3ff7c-02d6-4949-b73a-93dbcc68fa28",
+							"id": "a71ce9dd-d5ef-4f0a-a92d-60d990ad02d5",
 							"name": "Simul OAB App - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -828,7 +828,7 @@
 					},
 					"response": [
 						{
-							"id": "8ff6234d-bde8-45e1-b7b7-482c9182b4b2",
+							"id": "f0fbe532-2318-45ff-9e6c-1e91b0bce7f2",
 							"name": "StreamPushAirParif - multirange",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -2677,6 +2677,320 @@
 								],
 								"body": {},
 								"description": null
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Groups management",
+					"description": "In this section we will see basic operations on groups like creata a group, update it, delete it, list groups and assign a device to a group",
+					"item": [
+						{
+							"name": "Create the Slovakia group",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v0/groups",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \"parent\" :\"root\",\r\n \"pathNode\":\"Slovakia\",\r\n \"description\": \"group all devices in Slovakia\"\r\n }"
+								},
+								"description": "Create the \"Slovakia\" group under the \"root\"\n\nRestricted to API keys with at least one of the following roles : DEVICE_W."
+							},
+							"response": []
+						},
+						{
+							"name": "List registered groups",
+							"request": {
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/groups?size=20&page=0&parent=root",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"groups"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "20",
+											"equals": true,
+											"description": ""
+										},
+										{
+											"key": "page",
+											"value": "0",
+											"equals": true,
+											"description": ""
+										},
+										{
+											"key": "parent",
+											"value": "root",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": "List the groups just under the Root\n\nRestricted to API keys with at least one of the following roles : DEVICE_R."
+							},
+							"response": []
+						},
+						{
+							"name": "List all registered groups",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v0/groups",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": "List all the groups under the root, including all the subgroups\n\nRestricted to API keys with at least one of the following roles : DEVICE_R."
+							},
+							"response": []
+						},
+						{
+							"name": "Update the Slovakia group",
+							"request": {
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/groups/:groupId",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"groups",
+										":groupId"
+									],
+									"query": [],
+									"variable": [
+										{
+											"description": "",
+											"key": "groupId",
+											"value": "{{groupId}}"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "The group to register"
+								},
+								"description": "Change the description of the group Slovakia, its device id id : DVqmqf\n\nRestricted to API keys with at least one of the following roles : DEVICE_W."
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a specific group",
+							"request": {
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/groups/:groupId",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"groups",
+										":groupId"
+									],
+									"query": [],
+									"variable": [
+										{
+											"description": "",
+											"key": "groupId",
+											"value": "{{groupId}}"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": "in that case the group id was : lekfOq\n\nRestricted to API keys with at least one of the following roles : DEVICE_W."
+							},
+							"response": []
+						},
+						{
+							"name": "Assign to the romania group the device : urn:lo:nsid:android:FLG357329073120059",
+							"request": {
+								"url": "https://liveobjects.orange-business.com/api/v1/deviceMgt/devices/urn:lo:nsid:android:FLG357329073120059",
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"urn:lo:nsid:android:FLG357329073120059\",\r\n  \"name\": \"Test device\",\r\n  \"description\": \"Android simulator\",\r\n  \"group\": {\r\n      \"id\": \"M3IlpO\",\r\n      \"path\": \"/romania\"\r\n    }\r\n}"
+								},
+								"description": "Move the device urn:lo:nsid:android:FLG357329073120059 to the \"romania\" group.\nbeware of putting the device reference into the requests and the body of the request!\n\nRestricted to API keys with at least one of the following roles : DEVICE_W."
+							},
+							"response": []
+						},
+						{
+							"name": "Update device into the asset inventory",
+							"request": {
+								"url": {
+									"raw": "https://liveobjects.orange-business.com/api/v0/assets/:assetNamespace/:assetId",
+									"protocol": "https",
+									"host": [
+										"liveobjects",
+										"orange-business",
+										"com"
+									],
+									"path": [
+										"api",
+										"v0",
+										"assets",
+										":assetNamespace",
+										":assetId"
+									],
+									"query": [],
+									"variable": [
+										{
+											"description": "",
+											"key": "assetNamespace",
+											"value": "{{assetNamespace}}"
+										},
+										{
+											"description": "",
+											"key": "assetId",
+											"value": "{{assetId}}"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "X-API-KEY",
+										"value": "{{X-API-KEY}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "the updated asset definition"
+								},
+								"description": "Restricted to API keys with at least one of the following roles : DEVICE_W."
 							},
 							"response": []
 						}
