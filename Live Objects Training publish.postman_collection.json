@@ -52,7 +52,7 @@
 					},
 					"response": [
 						{
-							"id": "7a2fa393-b388-4b57-b6c6-80f730d4a90e",
+							"id": "cae70a11-0858-441c-9cd5-cb6bc86bc1df",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
 								"url": {
@@ -239,7 +239,7 @@
 					},
 					"response": [
 						{
-							"id": "fa5916bc-1153-4d82-b1c7-2b137d0927c7",
+							"id": "9f1e0fbb-8bbe-4bc8-b785-8fc2beed0c5c",
 							"name": "Retrieve data from the streamId",
 							"originalRequest": {
 								"url": {
@@ -387,22 +387,24 @@
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
+								"value": "{{X-API-KEY}}",
+								"description": ""
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n    {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 100\r\n         }\r\n       }\r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
+							"raw": "{\r\n\t\"size\" : 100, \r\n\t\"query\" : { \r\n\t\t\"bool\":{\r\n\t\t\t\"filter\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"term\" : { \"streamId\": \"android357329073120059\" }\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@demo.value.temperature\" :{\r\n\t\t\t\t\t\t\t\"gte\" : 100\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t   }\r\n\t},\r\n\t\"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n\t\"aggs\" :{\r\n\t        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n\t        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n\t        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n\t}\r\n}"
 						},
 						"description": "Get the last 100 records where temperature > 100\n- Stream : android357329073120059\n- Model : \"demo\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "eb800ca6-2050-45f7-9501-261e13b8ce8d",
+							"id": "9c1d9d28-7c3a-49a0-8e6f-9a5c9ea630c3",
 							"name": "OAB App - fra.lelong - Temp > 100 ordered",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -529,22 +531,24 @@
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
+								"value": "{{X-API-KEY}}",
+								"description": ""
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@demo.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@demo.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n     }\r\n\r\n}"
+							"raw": "{\r\n\t\"size\" : 100, \r\n\t\"query\" : { \r\n\t\t\"bool\":{\r\n\t\t\t\"filter\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"term\" : { \"streamId\": \"android357329073120059\" }\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@demo.value.temperature\" :{\r\n\t\t\t\t\t\t\t\"gte\" : 20,\r\n\t\t\t\t\t\t\t\"lte\" : 50\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@demo.value.hygrometry\" :{\r\n\t\t\t\t\t\t\t\"gte\" : 30,\r\n\t\t\t\t\t\t\t\"lte\" : 80\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t},\r\n\t\"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n\t\"aggs\" : {\r\n\t\t\"stats_temperature\" : { \"stats\" : { \"field\" : \"@demo.value.temperature\" } },\r\n\t\t\"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@demo.value.hygrometry\" } },\r\n\t\t\"stats_speed\" : { \"stats\" : { \"field\" : \"@demo.value.revmin\" } }\r\n\t}\r\n}"
 						},
 						"description": "Multirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 20 < temperature < 50 And 30 < hygrometry < 80\n- StreamID : android357329073120059\n- Model : \"demo\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "ba92b959-1fc4-48af-9b55-247cd1c985df",
+							"id": "cea34ab0-dbd2-4722-9008-9190915267ec",
 							"name": "OAB App - ELS - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -671,22 +675,24 @@
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
+								"value": "{{X-API-KEY}}",
+								"description": ""
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"android357329073120059\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.temperature\" :{\r\n           \"gte\" : 20,\r\n           \"lte\" : 50\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@ModelOABDemoApp00.value.hygrometry\" :{\r\n           \"gte\" : 30,\r\n           \"lte\" : 80\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_temperature\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.temperature\" } },\r\n        \"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.hygrometry\" } },\r\n        \"stats_speed\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.revmin\" } }\r\n     }\r\n\r\n}"
+							"raw": "{\r\n\t\"size\" : 100, \r\n\t\"query\" : { \r\n\t\t\"bool\":{\r\n\t\t\t\"filter\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"term\" : { \"streamId\": \"android357329073120059\" }\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@ModelOABDemoApp00.value.temperature\" :{\r\n\t\t\t\t\t\t\"gte\" : 20,\r\n\t\t\t\t\t\t\"lte\" : 50\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@ModelOABDemoApp00.value.hygrometry\" :{\r\n\t\t\t\t\t\t\"gte\" : 30,\r\n\t\t\t\t\t\t\"lte\" : 80\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t},\r\n\t \r\n\t\"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n\t\r\n\t\"aggs\" : {\r\n\t\t\"stats_temperature\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.temperature\" } },\r\n\t\t\"stats_hygrometry\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.hygrometry\" } },\r\n\t\t\"stats_speed\" : { \"stats\" : { \"field\" : \"@ModelOABDemoApp00.value.revmin\" } }\r\n\t}\r\n\r\n}"
 						},
 						"description": "Multirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 20 < temperature < 50 And 30 < hygrometry < 80\n- StreamID : android357329073120059\n- Model : \"ModelOABDemoApp00\"\n- Ordered by timestamp\n- stats at the bottom of the result\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"revmin\": 2584,<br>\n  \"temperature\": 35,<br>\n  \"hygrometry\": 46<br>\n}"
 					},
 					"response": [
 						{
-							"id": "a71ce9dd-d5ef-4f0a-a92d-60d990ad02d5",
+							"id": "b01759a8-2452-4998-b5da-e7982da1febb",
 							"name": "Simul OAB App - multi range",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -813,22 +819,24 @@
 						"header": [
 							{
 								"key": "X-API-KEY",
-								"value": "{{X-API-KEY}}"
+								"value": "{{X-API-KEY}}",
+								"description": ""
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"size\" : 100, \r\n \"query\" : { \r\n   \"and\":\r\n   [\r\n     {\r\n      \"term\" : { \"streamId\": \"StreamPushAirParif\" }\r\n    },\r\n    {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.CO\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 10000\r\n         }\r\n       }\r\n     },\r\n     {\r\n       \"range\" : {\r\n         \"@SampleAirParif03.value.PM10\" :{\r\n           \"gte\" : 0,\r\n           \"lte\" : 500\r\n         }\r\n       }\r\n       \r\n     }\r\n   ]\r\n },\r\n \"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n \r\n    \"aggs\" :\r\n    {\r\n        \"stats_CO\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.CO\" } },\r\n        \"stats_PM10\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n      \"percent PM10\" : { \"percentiles\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n      \"percent rank PM10\" : \r\n      {  \"percentile_ranks\" : \r\n          { \r\n            \"field\" : \"@SampleAirParif03.value.PM10\", \r\n              \"values\" : [10, 50, 100, 150, 200, 1000]\r\n            }\r\n      },      \r\n      \"percent rank PM25\" : \r\n      {  \"percentile_ranks\" : \r\n          { \r\n            \"field\" : \"@SampleAirParif03.value.PM25\", \r\n                    \"values\" : [10, 50, 100, 150, 200, 1000]\r\n          }\r\n      }      \r\n    }\r\n\r\n}"
+							"raw": "{\r\n\t\"size\" : 100, \r\n\t\"query\" : { \r\n\t\t\"bool\":{\r\n\t\t\t\"filter\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"term\" : { \"streamId\": \"StreamPushAirParif\" }\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@SampleAirParif03.value.CO\" :{\r\n\t\t\t\t\t\t\"gte\" : 0,\r\n\t\t\t\t\t\t\"lte\" : 10000\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t\t\"range\" : {\r\n\t\t\t\t\t\t\"@SampleAirParif03.value.PM10\" :{\r\n\t\t\t\t\t\t\"gte\" : 0,\r\n\t\t\t\t\t\t\"lte\" : 500\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t},\r\n\t\"sort\": { \"timestamp\": { \"order\": \"desc\" }},\r\n\t \r\n\t\"aggs\" :{\r\n\t\t\"stats_CO\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.CO\" } },\r\n\t\t\"stats_PM10\" : { \"stats\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n\t\t\"percent PM10\" : { \"percentiles\" : { \"field\" : \"@SampleAirParif03.value.PM10\" } },\r\n\t\t\"percent rank PM10\" : {\r\n\t\t\t\"percentile_ranks\" : { \r\n\t\t\t\t\t\"field\" : \"@SampleAirParif03.value.PM10\", \r\n\t\t\t\t\t\"values\" : [10, 50, 100, 150, 200, 1000]\r\n\t\t\t\t}\r\n\t\t\t},      \r\n\t\t\t\"percent rank PM25\" : {  \r\n\t\t\t\t\"percentile_ranks\" : { \r\n\t\t\t\t\t\"field\" : \"@SampleAirParif03.value.PM25\", \r\n\t\t\t\t\t\"values\" : [10, 50, 100, 150, 200, 1000]\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t}\r\n\r\n}"
 						},
 						"description": "Multirange + advanced stats request on Paris pollution data.\n\nMultirange request on Elastic Search with the followig restrictions : \n- The last 100\n- Range : 0 < CO < 10000 And 0 < PM10 < 500\n- StreamID : StreamPushAirParif\n- Model : \"SampleAirParif03\"\n- Ordered by timestamp\n- stats : percentiles and percentile ranks\n\n\n<br>\nExemple of the data values :<br>\n\"value\": {<br>\n  \"NO2\": 49,<br>\n  \"O3\": 11,<br>\n  \"Town\": \"Paris Centre\",<br>\n  \"PM25\": 15,<br>\n  \"PM10\": 28,<br>\n  \"CO\": 400<br>\n}<br>"
 					},
 					"response": [
 						{
-							"id": "f0fbe532-2318-45ff-9e6c-1e91b0bce7f2",
+							"id": "e6c25047-e2cc-4f36-9135-370b467f97b3",
 							"name": "StreamPushAirParif - multirange",
 							"originalRequest": {
 								"url": "https://liveobjects.orange-business.com/api/v0/data/search",
@@ -2434,7 +2442,7 @@
 		},
 		{
 			"name": "Device Management",
-			"description": "In this collection we will see how to create and update a simple Device Campaign ",
+			"description": "In this collection we will see how to \n- create and update a simple Device Campaign\n- get devices (assets) formware and update history \n- manage groups and assign devices to a group ",
 			"item": [
 				{
 					"name": "Campaign Management",
@@ -2933,64 +2941,6 @@
 									"raw": "{\r\n  \"id\": \"urn:lo:nsid:android:FLG357329073120059\",\r\n  \"name\": \"Test device\",\r\n  \"description\": \"Android simulator\",\r\n  \"group\": {\r\n      \"id\": \"M3IlpO\",\r\n      \"path\": \"/romania\"\r\n    }\r\n}"
 								},
 								"description": "Move the device urn:lo:nsid:android:FLG357329073120059 to the \"romania\" group.\nbeware of putting the device reference into the requests and the body of the request!\n\nRestricted to API keys with at least one of the following roles : DEVICE_W."
-							},
-							"response": []
-						},
-						{
-							"name": "Update device into the asset inventory",
-							"request": {
-								"url": {
-									"raw": "https://liveobjects.orange-business.com/api/v0/assets/:assetNamespace/:assetId",
-									"protocol": "https",
-									"host": [
-										"liveobjects",
-										"orange-business",
-										"com"
-									],
-									"path": [
-										"api",
-										"v0",
-										"assets",
-										":assetNamespace",
-										":assetId"
-									],
-									"query": [],
-									"variable": [
-										{
-											"description": "",
-											"key": "assetNamespace",
-											"value": "{{assetNamespace}}"
-										},
-										{
-											"description": "",
-											"key": "assetId",
-											"value": "{{assetId}}"
-										}
-									]
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"description": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"description": ""
-									},
-									{
-										"key": "X-API-KEY",
-										"value": "{{X-API-KEY}}",
-										"description": ""
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "the updated asset definition"
-								},
-								"description": "Restricted to API keys with at least one of the following roles : DEVICE_W."
 							},
 							"response": []
 						}
