@@ -1,5 +1,6 @@
 # Postman-collections-for-Live-Objects
- 
+
+see more on https://blog.liveobjects.orange-business.com/
 This repository holds a series of postman collections demonstrating a variety of use cases for all of the Live Objects REST APIs. More information about our APIs can be found on <a href="https://liveobjects.orange-business.com" target="_blank">https://liveobjects.orange-business.com</a>
 
 These examples have been created for use with the Postman utility. Postman is a testing framework for REST APIs. The tool can be downloaded from www.getpostman.com.
